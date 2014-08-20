@@ -15,15 +15,19 @@ Route::model('article', 'Article');
 Route::model('comment', 'Comment');
 Route::model('label', 'Label');
 
-/* View Composer */
-View::composer('recentArticles', function ($view) {
-	$view->recentArticles = Article::orderBy('id', 'desc')->take(10)->get();
-});
-View::composer('highRateArticles', function($view) {
-	$view->highRateArticles = Article::orderBy('read_count', 'desc')->take(10)->get();
-});
+/* User routes */
+Route::get('/article/{article}/show', ['as' => 'article.show', 'uses' => 'ArticleController@showArticle']);
+Route::post('/article/{article}/comment', ['as' => 'comment.new', 'uses' => 'CommentController@newComment']);
+
 
 /* Home routes */
+Route::controller('/admin', 'AdminController');
 Route::controller('/', 'BlogController');
 
-
+/* View Composer */
+View::composer('sidebar/recentArticles', function ($view) {
+	$view->recentArticles = Article::orderBy('id', 'desc')->take(10)->get();
+});
+View::composer('sidebar/highRateArticles', function($view) {
+	$view->highRateArticles = Article::orderBy('read_count', 'desc')->take(10)->get();
+});

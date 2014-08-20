@@ -9,16 +9,17 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/custom.css') }}
     {{ HTML::style('css/font-awesome.css') }}
+    
 </head>
 <body>
 <div class="wrap">
 
-	<header>
-		<div class="logo">
+	<header class="main-header">
+		<!--div class="logo">
 			<a href="/" target="_TOP">
 				<img src="/i/my_pic.jpg" alt="ipip" class="logoimg">
 			</a>
-		</div>
+		</div>-->
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -53,16 +54,32 @@
 					</a>
 				</li>
 				<li>
-					<a href="javascript:bookmarksite('ipip\'s blog',http://ipipblog)">
+					<a href="javascript:void(0)" id="ele9" class="tigger" target="_blank">
+						<i class="icon-user icon-2x myicon"></i>
+						Contact-Me
+					</a>
+				</li>
+				<li>
+					<a href="javascript:bookmarksite('ipip\'s blog','http://ipipblog')">
 						<i class="icon-star-empty icon-2x myicon"></i>
 						Add-as-Favorite
 					</a>
 				</li>
+				@if(Auth::check())
+				<li>
+					<a href="/admin/dash-board">
+						<i class="icon-leaf icon-2x myicon"></i>
+						Dash-Board
+					</a>
+				</li>
+				@endif
 			</ul>
 		</div>
 	</header>
 	<main class="container-fluid">
-		{{$main}}
+		<div class="row">
+		 	{{$main}}
+		</div>
 	</main>
 	<footer>
 		<div class="container">
@@ -84,5 +101,28 @@
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 {{ HTML::script('./js/bootstrap.min.js') }}
 {{ HTML::script('./js/custom.js') }}
+{{ HTML::script('./js/popuplayer.js') }}
+<div class="popupLayer" id="popup-layer">
+	<div id="blk9" class="blk" style="opacity: 1;">
+		<div class="head"><div class="head-right"></div></div>
+		<div class="main">
+			<div class="title">
+				<h2>Leave a easy MESSAGE here</h2>
+				<a href="javascript:void(0)" id="close9" class="closeBtn">X</a>
+			</div>
+			{{ Form::open() }}
+        		<fieldset class="fieldset">
+                	{{ Form::textarea('message',Input::old('message'),['rows'=>5, 'cols'=>75]) }}
+            		{{ Form::submit('send',['class'=>'button tiny radius']) }}
+        		</fieldset>
+        	{{ Form::close() }}
+		</div>
+    	<div class="foot"><div class="foot-right"></div></div>
+	</div>
+	<iframe border="0" frameborder="0" style="position: absolute; z-index: -1; left: 0px; top: 0px; opacity: 0; width: 500px; height: 202px;"></iframe>
+</div>
+<script>
+    	$(document).ready(contactboard());
+</script>
 </body>
 </html>
