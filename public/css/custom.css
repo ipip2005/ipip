@@ -1,0 +1,97 @@
+div.wrap{
+	background:url(/i/background.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	
+}
+header{
+	background:url(/i/header.jpg);
+	background-repeat:no-repeat;
+	background-postion:center 0;
+	background-size:cover;
+	padding:138px 0 0;
+	text-align:center;min-height:400px;
+	position:relative;
+}
+.logo{
+	position:absolute;
+	left:1%;
+	right:1%;
+	bottom:-40px;
+}
+.logoimg{
+	width:78px;
+}
+.blog-title{
+	margin-bottom:30px;
+	border:0
+}
+.blog-title a{
+	font-weight:700;
+	color:#fff;
+	font-size:64px;
+}
+.blog-title h2{
+	color:#fff;
+	padding:0;
+	margin:0 0 45px;
+	font-weight:100;
+	font-size:34px;
+}
+.link{
+	position:absolute;
+	right:1%;
+	bottom:10px;
+}
+.myicon{
+	color:#333;
+}
+footer{
+	background:#4A4849;
+	padding:0;
+	margin:0;
+	color:#fff;
+	font-size:12px;
+	position:relative;
+}
+footer .footer-text{
+	padding:30px 0;
+	margin:0;
+}
+footer a{
+	color:#ccc;
+}
+
+
+
+
+.self-picture{
+	float:left;
+	height:106px;	
+}
+div#top-bar-box{
+	display:inline-block;
+	hegiht:106px;
+	float:right;
+	position:relative;
+}
+div.navbar{
+	position:relative;
+	margin-top:55px;
+}
+.link li{
+	float:left;
+}
+.link li.active a{
+	color:#fff;
+	border-bottom:2px solid #37afe4;
+}
+
+.link li a{
+  	font-size:15px;
+  	color:#37afe4;
+  	text-shadow:none;	
+  	box-shadow:none;
+	padding:0;
+  	margin-right:25px;
+}
