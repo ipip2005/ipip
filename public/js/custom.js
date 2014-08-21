@@ -28,3 +28,6 @@ function contactboard(){
 		    }
 	 }
 }
+function save_article(){
+	
+}

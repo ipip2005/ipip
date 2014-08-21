@@ -2,7 +2,9 @@
 	<h3>Recent Articles</h3>
 	<ul>
 	@foreach($recentArticles as $article)
-		<li>{{link_to_route('article.show',$article->title,$article->id)}}</li>
+		<a href="/article/show?aid=<?php echo $article->id?>">
+			{{$article->title}}
+		</a>
 	@endforeach
 	</ul>
 </div>

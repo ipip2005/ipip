@@ -91,9 +91,6 @@ footer a{
 }
 
 
-
-
-
 div#top-bar-box{
 	display:inline-block;
 	hegiht:106px;
@@ -121,7 +118,35 @@ div.navbar{
   	margin-right:25px;
 }
 
+.admin-row{
+	padding:10px;
+}
 
+.admin-img{
+	width:100%;
+	height:100%;
+}
 
+.admin-text{
+	text-align:center;
+}
+.editor-wrap #container-title{
+	display:block;
+	width:960px;
+	margin:0 auto 20px;
+}
+.editor-wrap{
+	display:block;
+	width:960px;
+	margin:0 auto 50px;
+}
 
-
+.article-main{
+	padding:50px;	
+}
+.article-main .article-title{
+	background-color:#fefefe;
+}
+.article-main .article-content{
+	background-color:#fefefe;
+}

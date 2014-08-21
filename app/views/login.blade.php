@@ -1,5 +1,5 @@
 <div class="small-6 large-6 column login-form">
-        {{ Form::open() }}
+        {{ Form::open(array('url' => 'login')) }}
         <fieldset>
             <legend>Login</legend>
             {{ Form::label('username','Username') }}

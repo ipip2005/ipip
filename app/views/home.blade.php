@@ -1,9 +1,9 @@
-<div class="col-xs-8">
+<div class="col-xs-9">
 	<div class="row">
 		{{$content}}
 	</div>
 </div>
-<div class="col-xs-3 col-xs-offset-1">
+<div class="col-xs-3">
 	<div class="row">
 		<aside class="sidebar col-xs-12">
 		@include('sidebar/recentArticles')

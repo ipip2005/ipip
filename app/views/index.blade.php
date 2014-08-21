@@ -2,7 +2,9 @@
 	<article class="article">
 		<header class="article-header">
 			<h1 class="article-title">
-				{{link_to_route('article.show',$article->title,$article->id)}}
+				<a href="/article/show?aid=<?php echo $article->id?>">
+					{{$article->title}}
+				</a>
 			</h1>
 			<div class="clearfix">
 				<span class="left date">{{explode(' ',$article->created_at)[0]}}</span>

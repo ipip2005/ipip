@@ -10,9 +10,9 @@ class ArticleController extends BaseController
         $this->layout->title = 'Article listings';
         $this->layout->main = View::make('dash')->nest('content', 'articles.list', compact('articles'));
     }
-
-    public function showArticle(Article $article)
+    public function showArticle()
     {
+    	$article = Article::find(Input::get('aid'));
         $comments = $article->comments()->get();
         $this->layout->title = $article->title;
         $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments'));

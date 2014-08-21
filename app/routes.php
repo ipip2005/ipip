@@ -16,8 +16,8 @@ Route::model('comment', 'Comment');
 Route::model('label', 'Label');
 
 /* User routes */
-Route::get('/article/{article}/show', ['as' => 'article.show', 'uses' => 'ArticleController@showArticle']);
-Route::post('/article/{article}/comment', ['as' => 'comment.new', 'uses' => 'CommentController@newComment']);
+Route::get('/article/show', ['as' => 'article.show', 'uses' => 'ArticleController@showArticle']);
+Route::post('/article/comment', ['as' => 'comment.new', 'uses' => 'CommentController@newComment']);
 
 
 /* Home routes */

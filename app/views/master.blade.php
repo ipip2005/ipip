@@ -113,13 +113,12 @@
 			{{ Form::open() }}
         		<fieldset class="fieldset">
                 	{{ Form::textarea('message',Input::old('message'),['rows'=>5, 'cols'=>75]) }}
-            		{{ Form::submit('send',['class'=>'button tiny radius']) }}
+            		{{ Form::submit('send',['class'=>'btn btn-primary']) }}
         		</fieldset>
         	{{ Form::close() }}
 		</div>
     	<div class="foot"><div class="foot-right"></div></div>
 	</div>
-	<iframe border="0" frameborder="0" style="position: absolute; z-index: -1; left: 0px; top: 0px; opacity: 0; width: 500px; height: 202px;"></iframe>
 </div>
 <script>
     	$(document).ready(contactboard());

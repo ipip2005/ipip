@@ -68,7 +68,7 @@ var PopupLayer = new Class({
 	},
 	_construct:function(){                  //构造弹出层
 		this.popupBlk.show();
-		this.popupLayer.append(this.popupBlk.css({opacity:1})).appendTo($(document.body)).css({position:"absolute",'z-index':2,width:this.popupBlk.get(0).offsetWidth,height:this.popupBlk.get(0).offsetHeight});
+		this.popupLayer.append(this.popupBlk.css({opacity:1})).appendTo($(document.body)).css({position:"absolute",'z-index':1000,width:this.popupBlk.get(0).offsetWidth,height:this.popupBlk.get(0).offsetHeight});
 		this.options.usePopupIframe?this.popupLayer.append(this.popupIframe):null;
 		this.recalculatePopupIframe();
 		this.popupLayer.hide();
