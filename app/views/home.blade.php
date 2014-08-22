@@ -1,4 +1,6 @@
-<div class="col-xs-9">
+<div class="col-xs-2">
+</div>
+<div class="col-xs-7">
 	<div class="row">
 		{{$content}}
 	</div>

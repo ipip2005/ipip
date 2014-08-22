@@ -1,19 +1,18 @@
 @foreach($articles as $article)
-	<article class="article">
-		<header class="article-header">
-			<h1 class="article-title">
+	<article class="article col-xs-12">
+		<header class="article-header row img-rounded bg-success">
+			<h1 class="article-title col-xs-12">
 				<a href="/article/show?aid=<?php echo $article->id?>">
 					{{$article->title}}
 				</a>
 			</h1>
-			<div class="clearfix">
-				<span class="left date">{{explode(' ',$article->created_at)[0]}}</span>
-				<span class="right label">{{$article->comment_count}} comments </span>
+			<div class="col-xs-6">
+				<span class="soft-text">{{$article->comment_count}} comments </span>
+			</div>
+			<div class="col-xs-6 align-right">
+				<span class="soft-text">created_at: {{$article->created_at}}</span>
 			</div>
 		</header>
-		<div class="article-content">
-			<p>{{$article->content}}</p>
-		</div>
 		<footer class="article-footer">
 			<hr>
 		</footer>

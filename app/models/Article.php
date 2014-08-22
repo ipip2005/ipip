@@ -10,7 +10,7 @@ class Article extends Eloquent
     }
 	public function labels()
 	{
-		return $this->hasMany('Label');
+		return $this->belongsToMany('Label');
 	}
     public function user()
     {

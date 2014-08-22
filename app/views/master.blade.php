@@ -27,7 +27,7 @@
 						<h1>
 							<a href="/">ipip's blog</a>
 						</h1>
-						<h2>A Level 1 Light Mage</h2>
+						<label><h2>A Level 1 Light Mage</h2></label>
 					</div>
 				</div>
 			</div>

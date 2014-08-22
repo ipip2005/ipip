@@ -6,7 +6,7 @@ class Label extends Eloquent
 
     public function articles()
     {
-        return $this->hasMany('Article');
+        return $this->belongsToMany('Article');
     }
 
 	public function fatherlabel()
