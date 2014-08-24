@@ -11,15 +11,9 @@
     {{ HTML::style('css/font-awesome.css') }}
     
 </head>
-<body>
+<body onscroll="javascript:window_onscroll()">
 <div class="wrap">
-
-	<header class="main-header">
-		<!--div class="logo">
-			<a href="/" target="_TOP">
-				<img src="/i/my_pic.jpg" alt="ipip" class="logoimg">
-			</a>
-		</div>-->
+	<header id="main-header" class="main-header">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
@@ -33,7 +27,7 @@
 			</div>
 		</div>
 		
-		<div class="link">
+		<div id="navbar" class="link">
 			<ul class="nav">
 				<li class="active">
 					<a href="/" target="_top">
@@ -76,7 +70,7 @@
 			</ul>
 		</div>
 	</header>
-	<main class="container-fluid">
+	<main id="main" class="container-fluid master-main">
 		<div class="row">
 		 	{{$main}}
 		</div>

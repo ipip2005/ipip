@@ -4,14 +4,16 @@ div.wrap{
 	background-repeat:no-repeat;
 	background-size:cover;
 }
+
 header.main-header{
+	z-index:998;
 	background:url(/i/header.jpg);
 	background-repeat:no-repeat;
-	background-postion:center 0;
 	background-size:cover;
 	padding:138px 0 0;
-	text-align:center;min-height:400px;
-	position:relative;
+	text-align:center;
+	height:340px;
+	width:100%;	
 }
 .logo{
 	position:absolute;
@@ -30,6 +32,7 @@ header.main-header{
 }
 .blog-title a:hover{
 	text-decoration:none;
+	-webkit-filter:drop-shadow(4px 4px 4px #444);
 	-webkit-transform:scale(1.2);
 }
 .blog-title a{
@@ -44,10 +47,14 @@ header.main-header{
 	font-weight:100;
 	font-size:34px;
 }
+.master-main{
+	top:360px;
+	padding-bottom:15px;
+}
 .link{
 	position:absolute;
 	right:1%;
-	bottom:10px;
+	bottom:5px;
 }
 .myicon{
 	color:#333;
@@ -125,9 +132,8 @@ div.navbar{
 
 .link li a{
   	font-size:15px;
-  	color:#37afe4;
-  	text-shadow:none;	
-  	box-shadow:none;
+	font-weight:bold;
+  	color:#263ef3;
 	padding:0;
   	margin-right:25px;
 }

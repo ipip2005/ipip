@@ -31,3 +31,23 @@ function contactboard(){
 function save_article(){
 	
 }
+function window_onscroll(){
+	var scrollTop = document.documentElement.scrollTop;
+	if (!scrollTop){
+		scrollTop = document.body.scrollTop;
+	}
+	var header = document.getElementById('main-header');
+	var main = document.getElementById('main');
+	var header_height = header.offsetHeight;
+	var bar_height = document.getElementById('navbar').offsetHeight;
+	var debug = document.getElementById('debug');
+	if (scrollTop > header_height - bar_height - 8){
+		header.style.position = "fixed";
+		header.style.top = "" + (bar_height - header_height + 8) + "px";
+		main.style.paddingTop = header_height + "px";
+	} else{
+		header.style.position = "relative";
+		header.style.top = "0px";
+		main.style.paddingTop = "0px";
+	}
+}
