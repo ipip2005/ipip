@@ -1,4 +1,4 @@
-<div class="bg-info img-rounded ">
+<div class="bg-info img-rounded sidebar-in">
 	<h3 class="sidebar-title">Order By Total Visits</h3>
 	@foreach($highRateArticles as $article)
 		<div class="row sidebar-item">

@@ -41,9 +41,11 @@ class AdminController extends BaseController {
 		}
 		$this->layout->title = 'post failed';
 		$this->layout->main = View::make('admin/dash');
+		
 	}
 	public function getLabelManage(){
+		$labels = Label::all();
 		$this->layout->title = 'ipip - Manage Labels';
-		$this->layout->main = View::make('admin/labels');
+		$this->layout->main = View::make('admin/labels')->with('labels');
 	}
 }

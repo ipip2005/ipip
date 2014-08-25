@@ -10,7 +10,7 @@ class ArticleController extends BaseController
         $this->layout->title = 'Article listings';
         $this->layout->main = View::make('dash')->nest('content', 'articles.list', compact('articles'));
     }
-    public function showArticle()
+    public function getShow()
     {
     	$article = Article::find(Input::get('aid'));
         $comments = $article->comments()->get();
@@ -19,20 +19,42 @@ class ArticleController extends BaseController
         $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'labels'));
     }
 
-    public function editArticle(Article $article)
+    public function getEdit()
     {
+    	$article = Article::find(Input::get('aid'));
         $this->layout->title = 'Edit Article';
-        $this->layout->main = View::make('dash')->nest('content', 'articles.edit', compact('article'));
+        $this->layout->main = View::make('articles.edit')->with(compact('article'));
     }
 
-    public function deleteArticle(Article $article)
+    public function getDelete()
     {
-    	DB::connection('mongodb')->table('likes')->where('article_id',$article->id)->delete();
-    	DB::connection('mongodb')->table('count')->where('article_id',$article->id)->delete();
+    	$article = Article::find(Input::get('aid'));
         $article->delete();
-        return Redirect::route('article.list')->with('success', 'Article is deleted!');
+        return Redirect::to('/admin/dash-board')->with('success', 'Article is deleted!');
     }
-
+	public function postEdit()
+	{
+		$article = [
+		'title' => Input::get('title'),
+		'content' => Input::get('content')
+		];
+		Session::put('title', Input::get('title'));
+		Session::put('content', Input::get('content'));
+		$rules = [
+		'title' => 'required',
+		'content' => 'required'
+				];
+		$validator = Validator::make($article, $rules);
+		if ($validator->passes()){
+			$article = new Article($article);
+			$article->save();
+			return Redirect::to('/article/show?aid='.$article->id);
+		} else{
+			return Redirect::back()->withErrors($validator);
+		}
+		$this->layout->title = 'post failed';
+		$this->layout->main = View::make('admin/dash');
+	}
     public function updateArticle(Article $article)
     {
         $data = [

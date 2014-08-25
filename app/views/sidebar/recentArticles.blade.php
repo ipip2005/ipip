@@ -1,4 +1,4 @@
-<div class="bg-info img-rounded ">
+<div class="bg-info img-rounded sidebar-in">
 	<h3 class="sidebar-title">Recent Articles</h3>
 	@foreach($recentArticles as $article)
 		<div class="row sidebar-item">

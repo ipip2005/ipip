@@ -14,6 +14,7 @@ SyntaxHighlighter.all() //执行代码高亮
         maximumWords : 256,
         elementPathEnabled : false,
        	textarea : 'title',
+       	initialContent : '',
         toolbars: [
                    [
                        'subscript', //下标
@@ -40,6 +41,7 @@ SyntaxHighlighter.all() //执行代码高亮
         maximumWords : 20000,
         textarea : 'content',
         maxUndoCount : 50,
+        initialContent : '',
         maxInputCount : 1
     });
 </script>
@@ -54,9 +56,10 @@ SyntaxHighlighter.all() //执行代码高亮
 <!-- 加载编辑器的容器 -->
 <div class="row">
 	<div class="editor-wrap">
-		{{ Form::open(array('url' => 'admin/article')) }}
+		{{ Form::open(array('url' => 'article/edit')) }}
 		<pre class="bg-primary">title</pre>
 		<script id="container-title" name="title" type="text/plain">
+			{{$article->title}}
 		</script>
 		@if($errors->has())
 			@foreach ($errors->all() as $message)
@@ -69,9 +72,12 @@ SyntaxHighlighter.all() //执行代码高亮
 		<pre class="bg-primary">content</pre>
 		
 		<script id="container-content" name="content" type="text/plain">
+			{{$article->content}}
 		</script>
-		{{ Form::submit('POST',['class'=>'btn btn-primary col-xs-1']) }}
+		{{ Form::submit('UPDATE',['class'=>'btn btn-primary col-xs-1']) }}
 		<input Type="button" name="save" class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE" onclick="save_article">
 		{{ Form::close() }}
+		<script type="text/javascript">
+		</script>
 	</div>
 </div>

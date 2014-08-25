@@ -9,7 +9,6 @@
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/custom.css') }}
     {{ HTML::style('css/font-awesome.css') }}
-    
 </head>
 <body onscroll="javascript:window_onscroll()">
 <div class="wrap">
@@ -92,7 +91,8 @@
 		</div>
 	</footer>
 </div>
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
 {{ HTML::script('./js/bootstrap.min.js') }}
 {{ HTML::script('./js/custom.js') }}
 {{ HTML::script('./js/popuplayer.js') }}

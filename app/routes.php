@@ -15,12 +15,10 @@ Route::model('article', 'Article');
 Route::model('comment', 'Comment');
 Route::model('label', 'Label');
 
-/* User routes */
-Route::get('/article/show', ['as' => 'article.show', 'uses' => 'ArticleController@showArticle']);
-Route::post('/article/comment', ['as' => 'comment.new', 'uses' => 'CommentController@newComment']);
 
 
 /* Home routes */
+Route::controller('/article', 'ArticleController');
 Route::controller('/admin', 'AdminController');
 Route::controller('/', 'BlogController');
 

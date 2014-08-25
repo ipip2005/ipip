@@ -31,6 +31,7 @@ function contactboard(){
 function save_article(){
 	
 }
+
 function window_onscroll(){
 	var scrollTop = document.documentElement.scrollTop;
 	if (!scrollTop){
