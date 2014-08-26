@@ -52,3 +52,9 @@ function window_onscroll(){
 		main.style.paddingTop = "0px";
 	}
 }
+function render(){
+	UE.getEditor('comment-content',{
+		initialFrameWidth:'98%',
+		initialFrameHeight: 500
+	});
+}

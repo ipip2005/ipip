@@ -154,8 +154,12 @@ div.navbar{
 a:hover .fan-img{
 	-webkit-filter: drop-shadow(7px 7px 7px #888) brightness(1.2);
 }
+.nav li a{
+	-webkit-filter: drop-shadow(3px 3px 3px #888);
+}
 .nav li a:hover{
 	-webkit-transform:scale(1.2);
+	background:transparent;
 }
 .admin-img{
 	width:100%;
@@ -205,15 +209,31 @@ a:hover .fan-img{
 .align-right{
 	text-align:right;
 }
-
-
+.comment-area{
+	width:98%;
+	left:1%;
+	right:1%;
+}
 .label-title{
 	text-align:center;
 }
 
-
-
-
+.center-text{
+	text-align:center;
+}
+.content-container{
+	width:100%;	
+}
+.margin-5{
+	margin:5px;
+}
+.padding-5{
+	padding:5px;
+	text-align:center;
+}
+.height-5{
+	height:5px;
+}
 .soft-text{
 	color:#17a689;
 	font-family: 'Open Sans', 'trebuchet ms', arial, sans-serif;

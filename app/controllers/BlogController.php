@@ -24,6 +24,12 @@ class BlogController extends BaseController {
 		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
 		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles' ) );
 	}
+	public function getArticleAtLabel(){
+		$label = Label::find(Input::get('label_id'));
+		$articles = $label->articles()->paginate( 20 );
+		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
+		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles') );
+	}
 	/**
 	 * generate Login Page.
 	 */
@@ -54,5 +60,9 @@ class BlogController extends BaseController {
 		} else {
 			return Redirect::back ()->withErrors ( $validator )->withInput ();
 		}
+	}
+	public function getLogout(){
+		Auth::Logout();
+		return Redirect::to('/');
 	}
 }

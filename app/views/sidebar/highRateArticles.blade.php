@@ -3,7 +3,7 @@
 	@foreach($highRateArticles as $article)
 		<div class="row sidebar-item">
 			<div class="col-xs-12">
-				<label class="bg-primary img-rounded">
+				<label class="bg-primary img-rounded padding-5">
 				{{$article->read_count}}
 				</label>
 			</div>

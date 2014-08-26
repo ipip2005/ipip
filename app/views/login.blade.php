@@ -1,4 +1,4 @@
-<div class="small-6 large-6 column login-form">
+<div class="col-xs-12">
         {{ Form::open(array('url' => 'login')) }}
         <fieldset>
             <legend>Login</legend>
@@ -11,7 +11,9 @@
         {{ Form::close() }}
         @if($errors->has())
             @foreach ($errors->all() as $message)
-                <span class="label alert round">{{$message}}</span><br><br>
+            	<div class="row margin-5">
+                	<span class="btn-lg bg-warning">{{$message}}</span><br><br>
+                </div>
             @endforeach
         @endif
         @if(Session::has('failure'))

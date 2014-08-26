@@ -1,6 +1,9 @@
 <!-- 配置文件 -->
-<script type="text/javascript" src="/js/third-party/SyntaxHighlighter/shCore.js"></script>
-<link rel="stylesheet" href="/js/third-party/SyntaxHighlighter/shCoreDefault.css" type="text/css" />
+<script type="text/javascript"
+	src="/js/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet"
+	href="/js/third-party/SyntaxHighlighter/shCoreDefault.css"
+	type="text/css" />
 <script>
 SyntaxHighlighter.all() //执行代码高亮
 </script>
@@ -46,9 +49,7 @@ SyntaxHighlighter.all() //执行代码高亮
 
 <div class="row">
 	<div class="col-xs-12">
-		<h1 class="admin-text">
-			Article
-		</h1>
+		<h1 class="admin-text">Article</h1>
 	</div>
 </div>
 <!-- 加载编辑器的容器 -->
@@ -58,20 +59,29 @@ SyntaxHighlighter.all() //执行代码高亮
 		<pre class="bg-primary">title</pre>
 		<script id="container-title" name="title" type="text/plain">
 		</script>
-		@if($errors->has())
-			@foreach ($errors->all() as $message)
-			<pre class="bg-danger">{{$message}}</pre>
-		@endforeach
-		@endif
-		@if(Session::has('failure'))
-    		<pre class="bg-danger">{{Session::get('failure')}}</pre>
+		<div class="col-xs-12">
+			<div class="row">
+				@if(Session::has('error')) <span
+					class="col-xs-12 btn-lg bg-danger center-text">
+					{{Session::get('error')}} </span> <br> @endif
+				@if(Session::has('success')) <span
+					class="col-xs-12 btn-lg bg-success center-text">
+					{{Session::get('success')}} </span> <br> @endif
+			</div>
+		</div>
+
+		@if($errors->has()) @foreach ($errors->all() as $message)
+		<pre class="col-xs-12 btn-lg bg-danger center-text">{{$message}}</pre>
+		@endforeach @endif @if(Session::has('failure'))
+		<pre class="col-xs-12 btn-lg bg-danger center-text">{{Session::get('failure')}}</pre>
 		@endif
 		<pre class="bg-primary">content</pre>
-		
+
 		<script id="container-content" name="content" type="text/plain">
 		</script>
-		{{ Form::submit('POST',['class'=>'btn btn-primary col-xs-1']) }}
-		<input Type="button" name="save" class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE" onclick="save_article">
-		{{ Form::close() }}
+		{{ Form::submit('POST',['class'=>'btn btn-primary col-xs-1']) }} <input
+			Type="button" name="save"
+			class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE"
+			onclick="save_article"> {{ Form::close() }}
 	</div>
 </div>

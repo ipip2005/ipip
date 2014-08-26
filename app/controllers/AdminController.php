@@ -18,7 +18,7 @@ class AdminController extends BaseController {
 	}
 	public function getPost(){
 		$this->layout->title = 'ipip - Post an article';
-		$this->layout->main = View::make('admin/post');
+		$this->layout->main = View::make('admin/post')->with(array('labels' => Label::all()));
 	}
 	public function postArticle(){
 		$article = [
@@ -38,14 +38,10 @@ class AdminController extends BaseController {
 			return Redirect::to('/article/show?aid='.$article->id);
 		} else{
 			return Redirect::back()->withErrors($validator);
-		}
-		$this->layout->title = 'post failed';
-		$this->layout->main = View::make('admin/dash');
-		
+		}		
 	}
 	public function getLabelManage(){
-		$labels = Label::all();
 		$this->layout->title = 'ipip - Manage Labels';
-		$this->layout->main = View::make('admin/labels')->with('labels');
+		$this->layout->main = View::make('admin/labels')->with(array('labels'=>Label::all()));
 	}
 }

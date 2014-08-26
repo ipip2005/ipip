@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 class ArticleController extends BaseController
 {
 
@@ -14,9 +15,10 @@ class ArticleController extends BaseController
     {
     	$article = Article::find(Input::get('aid'));
         $comments = $article->comments()->get();
-        $labels = $article->labels()->get();
+        $mylabels = $article->labels()->get();
+        $labels = Label::all();
         $this->layout->title = 'ipip\'s Blog';
-        $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'labels'));
+        $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'mylabels', 'labels'));
     }
 
     public function getEdit()
@@ -55,27 +57,14 @@ class ArticleController extends BaseController
 		$this->layout->title = 'post failed';
 		$this->layout->main = View::make('admin/dash');
 	}
-    public function updateArticle(Article $article)
-    {
-        $data = [
-            'title' => Input::get('title'),
-            'description' => Input::get('description'),
-        ];
-        $rules = [
-            'title' => 'required',
-            'description' => 'required',
-        ];
-        $valid = Validator::make($data, $rules);
-        if ($valid->passes()) {
-            $article->title = $data['title'];
-            $article->description = $data['description'];
-            if (count($article->getDirty()) > 0) /* avoiding resubmission of same content */ {
-                $article->save();
-                return Redirect::back()->with('success', 'Article is updated!');
-            } else
-                return Redirect::back()->with('success', 'Nothing to update!');
-        } else
-            return Redirect::back()->withErrors($valid)->withInput();
-    }
-	
+	public function postUpdateLabels(){
+		$article = Article::find(Input::get('article_id'));
+		$labels = Label::all();
+		foreach($labels as $label){
+			$article->labels()->detach($label->id);
+			if (Input::get($label->label_name) =='on')
+				$article->labels()->attach($label->id);
+		}
+		return Redirect::back();
+	}
 }
