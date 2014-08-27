@@ -6,16 +6,14 @@ div.wrap{
 }
 
 header.main-header{
-	z-index:2;
+	z-index:1000;
 	position:relative;
 	top:0;
-	background:url(/i/header.jpg);
-	background-repeat:no-repeat;
-	background-size:cover;
 	text-align:center;
 	height:340px;
 	width:100%;	
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
+	background-image:linear-gradient(300deg,orange,green);
 }
 .logo{
 	position:absolute;
@@ -201,6 +199,9 @@ a:hover .fan-img{
 	margin:25px 0 25px 0;
 	box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
 }
+.article-comments{
+	background-color:#eee;
+}
 .article-footer{
 	background-color:#17a689;
 	height:3px;
@@ -220,6 +221,15 @@ a:hover .fan-img{
 
 .center-text{
 	text-align:center;
+}
+.left-text{
+	text-align:left;
+}
+.right-text{
+	text-align:right;
+}
+.hidden{
+	display:none;
 }
 .content-container{
 	width:100%;	
@@ -246,4 +256,7 @@ a:hover .fan-img{
 }
 a.inline:hover{
 	text-decoration: none;
+}
+.inline{
+	display:inline;
 }

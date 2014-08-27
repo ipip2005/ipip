@@ -44,4 +44,10 @@ class AdminController extends BaseController {
 		$this->layout->title = 'ipip - Manage Labels';
 		$this->layout->main = View::make('admin/labels')->with(array('labels'=>Label::all()));
 	}
+	public function getCommentManage(){
+		$comments = Comment::orderBy ( 'id', 'desc' )->paginate ( 20 );
+		$comments->getFactory ()->setViewName ( 'pagination::slider' );
+		$this->layout->title = 'ipip - Manage Comments';
+		$this->layout->main = View::make('admin/comments')->with(compact('comments'));
+	}
 }

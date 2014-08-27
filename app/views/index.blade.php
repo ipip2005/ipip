@@ -14,16 +14,12 @@
 				<span class="soft-text">created_at: {{$article->created_at}}</span>
 			</div>
 			@if(count($article->labels()->get())>0)
-				<?php $a=0?>
 				@foreach($article->labels as $label)
-				<a href="/article-at-label?label_id=<?php echo $label->id?>"
-					class="col-xs-3 img-rounded text-center <?php		
-					if (($a+$a/4)%2 == 0) echo 'btn-primary'; else
-						echo'btn-info'; 
-					$a = $a + 1;
-					?>">
-					{{$label->label_name}}
-				</a>	
+				<a
+				href="/article-at-label?label_id=<?php echo $label->id?>"
+				class="col-xs-4 col-md-2 ctext-center">
+				<p class="bg-primary img-rounded padding-5">{{{$label->label_name}}}</p>
+				</a>
 				@endforeach	
 		
 			@endif

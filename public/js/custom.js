@@ -52,9 +52,64 @@ function window_onscroll(){
 		main.style.paddingTop = "0px";
 	}
 }
+function add_event(){
+	window.addEventListener('scroll', window_onscroll, false);
+}
 function render(){
-	UE.getEditor('comment-content',{
-		initialFrameWidth:'98%',
-		initialFrameHeight: 500
+	var editor = UE.getEditor('comment-content',{
+		initialFrameWidth:'100%',
+		initialFrameHeight: 500,
+		initialStyle:'p{line-height:1em; font-family: 微软雅黑; font-size:20px;}',
+		toolbars: [
+                   [
+                       'source',
+                       'undo',
+					   'redo',
+                       'subscript', //下标
+                       'superscript', //上标
+                       '|', //分隔线
+                       'bold',
+                       'fontfamily',
+                       'fontsize', //字号
+                       'forecolor', //字体颜色
+                       'insertcode',
+                       'link',
+                       'time', //时间
+                       'date', //日期
+                       '|', //分隔线
+                       'emotion', //表情
+                       'spechars', //特殊字符
+                   ]
+               ],
 	});
+	var a = document.getElementById("render");
+	a.innerHTML="Cancel Render";
+	a.onclick = function(){
+		this.innerHTML="Render Editor";
+		this.onclick=render;
+		editor.destroy();
+		var textarea = document.getElementById('comment-content');
+		textarea.style.width="98%";
+	}
+}
+function showHiddenComment(comment_id){
+	var hiddenButton = document.getElementById('hidden'+comment_id);
+	hiddenButton.style.display="inline";
+}
+function hideComment(comment_id){
+	var hiddenButton = document.getElementById('hidden'+comment_id);
+	hiddenButton.style.display="none";
+}
+function reply(commenter){
+	var a = document.getElementById("render");
+	if (a.innerHTML == 'Render Editor'){
+		var textarea = document.getElementById('comment-content');
+		textarea.value += "@"+commenter+'\n';
+	} else{
+		UE.getEditor('comment-content').setContent('<a href="javascript:void(0)">@'+commenter+'</a>', true);
+	}
+}
+function checkComment(comment_id){
+	$.ajax({url:"/comment/check?cid="+comment_id});
+	$('div#comment'+comment_id).remove();
 }

@@ -17,6 +17,7 @@ SyntaxHighlighter.all() //执行代码高亮
         maximumWords : 256,
         elementPathEnabled : false,
        	textarea : 'title',
+       	topOffset : 32,
         toolbars: [
                    [
                        'subscript', //下标
@@ -38,6 +39,7 @@ SyntaxHighlighter.all() //执行代码高亮
                ]
     });
     var ue = UE.getEditor('container-content',{
+    	topOffset : 40,
         initialFrameHeight : 600,
         saveInterval : 10000,
         maximumWords : 20000,

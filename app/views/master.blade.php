@@ -12,7 +12,7 @@
      <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	{{ HTML::script('./js/bootstrap.min.js') }}
 </head>
-<body onscroll="javascript:window_onscroll()">
+<body onload="javascript:add_event()">
 <div class="wrap">
 	<header id="main-header" class="main-header">
 		<div class="container">
@@ -104,7 +104,7 @@
 				<h2>Leave a easy MESSAGE here</h2>
 				<a href="javascript:void(0)" id="close9" class="closeBtn">X</a>
 			</div>
-			{{ Form::open() }}
+			{{ Form::open(array('url'=>'comment/message')) }}
         		<fieldset class="fieldset">
                 	{{ Form::textarea('message',Input::old('message'),['rows'=>5, 'cols'=>75]) }}
             		{{ Form::submit('send',['class'=>'btn btn-primary']) }}

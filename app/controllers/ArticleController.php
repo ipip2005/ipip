@@ -23,6 +23,7 @@ class ArticleController extends BaseController
 
     public function getEdit()
     {
+    	if (!Auth::check())return Redirect::back();
     	$article = Article::find(Input::get('aid'));
         $this->layout->title = 'Edit Article';
         $this->layout->main = View::make('articles.edit')->with(compact('article'));
@@ -30,6 +31,7 @@ class ArticleController extends BaseController
 
     public function getDelete()
     {
+    	if (!Auth::check())return Redirect::back();
     	$article = Article::find(Input::get('aid'));
         $article->delete();
         return Redirect::to('/admin/dash-board')->with('success', 'Article is deleted!');
@@ -65,6 +67,21 @@ class ArticleController extends BaseController
 			if (Input::get($label->label_name) =='on')
 				$article->labels()->attach($label->id);
 		}
+		return Redirect::back();
+	}
+	public function postComment(){
+		$article = Article::find(Input::get('article_id'));
+		$comment = [
+			'commenter' => Input::get('commenter-name'),
+			'email' => Input::get('commenter-contact-information'),
+			'comment' => Input::get('comment-content'),
+		];
+		$comment = new Comment($comment);
+		$comment->article_id = $article->id;
+		$comment->checked = false;
+		$comment->save();
+		$article->comment_count++;
+		$article->save();
 		return Redirect::back();
 	}
 }
