@@ -1,5 +1,4 @@
 div.wrap{
-	//background:url(/i/background.jpg);
 	background-color:#f9f9f9;
 	background-repeat:no-repeat;
 	background-size:cover;
@@ -13,7 +12,8 @@ header.main-header{
 	height:340px;
 	width:100%;	
 	box-shadow: 3px 3px 3px rgba(0,0,0,0.25);
-	background-image:linear-gradient(300deg,orange,green);
+	background:url(/i/header.jpg);
+	background-size:auto auto;
 }
 .logo{
 	position:absolute;
