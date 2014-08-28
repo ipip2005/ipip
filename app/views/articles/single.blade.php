@@ -4,16 +4,16 @@
 <div class="article-wrap">
 	<div class="col-xs-12 article-main">
 		<div class="row article-title">
-			<div class="col-xs-12">
-				<div id='title'>{{$article->title}}</div>
+			<div class="col-xs-12 text-center">
+				<h1 id='title'>{{$article->title}}</h1>
 			</div>
 		</div>
 
 		<div class="row article-labels">
 			@foreach($mylabels as $label) <a
 				href="/article-at-label?label_id=<?php echo $label->id?>"
-				class="col-xs-4 col-md-2 text-center">
-				<p class="bg-info img-rounded">{{{$label->label_name}}}</p>
+				class="col-xs-4 col-md-2 text-center bigger">
+				<p class="bg-info img-rounded soft-text">{{$label->label_name}}</p>
 			</a> @endforeach
 
 		</div>
@@ -22,14 +22,14 @@
 			<div class="col-xs-12 article-divider"></div>
 		</div>
 		<div class="right-text">
-				<div class="col-xs-6 text-left">
-					<span class="bg-default img-rounded padding-5 soft-text">created at
-						{{$article->created_at}}</span>
-				</div>
-				<div class="col-xs-6 text-right">
-					<span class="bg-default img-rounded padding-5 soft-text">last
-						updated at {{$article->updated_at}}</span>
-				</div>
+			<div class="col-xs-6 text-left">
+				<span class="bg-default img-rounded padding-5 soft-text">created at
+					{{$article->created_at}}</span>
+			</div>
+			<div class="col-xs-6 text-right">
+				<span class="bg-default img-rounded padding-5 soft-text">last
+					updated at {{$article->updated_at}}</span>
+			</div>
 		</div>
 		@if (Auth::check())
 		<div class="row article-control">
@@ -73,11 +73,10 @@
 						<div class="modal-body">
 							@foreach($labels as $label)
 							<div class="checkbox">
-								<label> <input type="checkbox"
-									name="<?php echo $label->label_name?>"<?php
-									if (in_array ( $label->id, $article->labels ()->getRelatedIds () ))
-										echo 'checked = "true"';
-									?>"> {{$label->label_name}}
+								<label> <input type="checkbox" name="<?php echo $label->id?>"<?php
+								if (in_array ( $label->id, $article->labels ()->getRelatedIds () ))
+									echo 'checked = "true"';
+								?>"> {{$label->label_name}}
 								</label>
 							</div>
 							@endforeach
@@ -107,14 +106,14 @@
 				<div class="row">
 					<h3 class="col-xs-12 soft-text">Comments:</h3>
 				</div>
-				@foreach($article->comments as $comment)
-				<a id="<?php echo $comment->id?>" name="<?php echo $comment->id?>"></a>
+				@foreach($article->comments as $comment) <a
+					id="<?php echo $comment->id?>" name="<?php echo $comment->id?>"></a>
 				<div class="row">
 					<br>
 				</div>
 				<div class="comment-wrap btn-default img-rounded row" tabIndex="-1"
-					onfocus="showHiddenComment({{$comment->id}})"
-					onblur="hideComment({{$comment->id}})">
+					onfocus="toggleHiddenComment({{$comment->id}})"
+					onblur="toggleHiddenComment({{$comment->id}})">
 					<h4 class="col-xs-6">
 						<p class="btn-info img-rounded padding-5">name:
 							<?php
@@ -123,7 +122,11 @@
 							else
 								echo $comment->commenter;
 							?>
+						
+						
+						
 						<p>
+					
 					</h4>
 					<h4 class="col-xs-6">
 						<p class="btn-info img-rounded padding-5">c-i:<?php
@@ -135,22 +138,21 @@
 					</h4>
 
 					<h3 class="col-xs-12">{{$comment->comment}}</h3>
-
+					<div class="col-xs-12 text-right">
+						<p class="soft-text">{{$comment->created_at}}</p>
+					</div>
 					<div class="col-xs-12 right-text margin-5">
-						@if(Auth::check())
-						<div id="hidden<?php echo $comment->id?>" style="display: none;">
-							<a href="/comment/delete?cid=<?php echo $comment->id?>"
-								class="btn btn-danger">delete</a>
-						</div>
-						@endif <a
+						@if(Auth::check()) <a
+							href="/comment/delete?cid=<?php echo $comment->id?>"
+							class="btn btn-danger" id="hidden<?php echo $comment->id?>"
+							style="display: none;">delete</a> @endif <a
 							onclick="javascript:reply('<?php
 							if ($comment->commenter == '')
 								echo 'no_name_' . $comment->id;
 							else
 								echo $comment->commenter;
 							?>')"
-							href="#leave-comment"
-							class="btn btn-primary">reply</a>
+							href="#leave-comment" class="btn btn-primary">reply</a>
 					</div>
 				</div>
 				<div class="row">
@@ -168,8 +170,7 @@
 					{{Form::open(array('url'=>'article/comment'))}}
 					<div class="row">
 						{{Form::text('commenter-name',Input::old('username'),['placeholder'=>'Your
-						name', 'class'=>'btn-lg img-rounded col-xs-3
-						col-xs-offset-1'])}}
+						name', 'class'=>'btn-lg img-rounded col-xs-3 col-xs-offset-1'])}}
 						{{Form::text('commenter-contact-information',Input::old('contact-information'),
 						['placeholder'=>'email address or something','class'=>'btn-lg
 						img-rounded col-xs-6 col-xs-offset-1'])}}</div>
@@ -178,10 +179,12 @@
 					</div>
 					<div class="row">
 						{{Form::textarea('comment-content',Input::old('comment-content'),
-						['id'=>'comment-content', 'placeholder'=>'print anything you want!
-						not empty', 'class'=>'btn-lg img-rounded col-xs-12
-						comment-area left-text'])}}</div>
-					<div class="row"><br></div>
+						['id'=>'comment-content', 'placeholder'=>'print anything you want! not empty',
+						 'class'=>'btn-lg img-rounded col-xs-12 comment-area
+						left-text'])}}</div>
+					<div class="row">
+						<br>
+					</div>
 					<div class="row">
 						<div class="col-xs-6 text-center">
 							<a onclick="javascript:render()" class="btn btn-lg btn-info"

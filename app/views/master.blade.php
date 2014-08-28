@@ -12,7 +12,7 @@
      <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	{{ HTML::script('./js/bootstrap.min.js') }}
 </head>
-<body onload="javascript:add_event()">
+<body onload="on_load()">
 <div class="wrap">
 	<header id="main-header" class="main-header">
 		<div class="container">
@@ -36,25 +36,25 @@
 						Home
 					</a>
 				</li>
-				<li>
+				<li class="shouldhideonscroll">
 					<a href="https://github.com/ipip2005" target="_blank">
 						<i class="icon-github icon-2x myicon"></i>
 						My-GitHub
 					</a>
 				</li>
-				<li>
+				<li class="shouldhideonscroll">
 					<a href="http://blog.csdn.net/ipip2005" target="_blank">
 						<i class="icon-sign-blank icon-2x myicon"></i>
 						My-CSND
 					</a>
 				</li>
-				<li>
+				<li class="shouldhideonscroll">
 					<a href="javascript:void(0)" id="ele9" class="tigger" target="_blank">
 						<i class="icon-user icon-2x myicon"></i>
 						Contact-Me
 					</a>
 				</li>
-				<li>
+				<li class="shouldhideonscroll">
 					<a href="javascript:bookmarksite('ipip\'s blog','http://ipipblog')">
 						<i class="icon-star-empty icon-2x myicon"></i>
 						Add-as-Favorite
@@ -93,7 +93,8 @@
 		</div>
 	</footer>
 </div>
-   
+
+</div>
 {{ HTML::script('./js/custom.js') }}
 {{ HTML::script('./js/popuplayer.js') }}
 <div class="popupLayer" id="popup-layer">

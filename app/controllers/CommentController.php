@@ -9,7 +9,9 @@ class CommentController extends BaseController
 		if ($comment->article_id!=''){
 			$article = Article::find($comment->article_id);
 			$article->comment_count--;
+			$article->timestamps =false;
 			$article->save();
+			$article->timestamps =true;  
 		}
 		$comment->delete();
 		return Redirect::back();

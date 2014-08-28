@@ -29,7 +29,9 @@ function contactboard(){
 	 }
 }
 function save_article(){
-	
+	var title = UE.getEditor('container-title').getContent();
+	var content = UE.getEditor('container-content').getContent();
+	$.ajax({url:"/article/save", type:'post', async:false, data: {'title':title, 'content':content}});
 }
 
 function window_onscroll(){
@@ -46,11 +48,22 @@ function window_onscroll(){
 		header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = header_height + "px";
+		$('.shouldhideonscroll').hide(500);
 	} else{
 		header.style.position = "relative";
 		header.style.top = "0px";
+		$('.shouldhideonscroll').show(500);
 		main.style.paddingTop = "0px";
 	}
+	var hiddenbox = $('#hiddenbox');
+	if (scrollTop > 600){
+		hiddenbox.show(500);
+	} else {
+		hiddenbox.hide(500);
+	}
+}
+function on_load(){
+	add_event();
 }
 function add_event(){
 	window.addEventListener('scroll', window_onscroll, false);
@@ -92,14 +105,10 @@ function render(){
 		textarea.style.width="98%";
 	}
 }
-function showHiddenComment(comment_id){
-	var hiddenButton = document.getElementById('hidden'+comment_id);
-	hiddenButton.style.display="inline";
+function toggleHiddenComment(comment_id){
+	$('#hidden'+comment_id).toggle(500);
 }
-function hideComment(comment_id){
-	var hiddenButton = document.getElementById('hidden'+comment_id);
-	hiddenButton.style.display="none";
-}
+
 function reply(commenter){
 	var a = document.getElementById("render");
 	if (a.innerHTML == 'Render Editor'){
@@ -112,4 +121,8 @@ function reply(commenter){
 function checkComment(comment_id){
 	$.ajax({url:"/comment/check?cid="+comment_id});
 	$('div#comment'+comment_id).remove();
+	$('a#new').text(parseInt($('a#new').text())-1);
+}
+function scrollToTop(){
+	$("html,body").animate({scrollTop:0});
 }

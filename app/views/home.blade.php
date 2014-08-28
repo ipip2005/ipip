@@ -1,11 +1,16 @@
-<div class="col-xs-1">
+<div class="col-xs-1 col-md-1">
+	<div class="hiddenbox" id="hiddenbox" style="display:none">
+		<button class="btn btn-primary img-rounded to-top padding-5" onclick="scrollToTop()">
+			<i class="icon-chevron-up"></i>
+		</button>
+	</div>
 </div>
-<div class="col-xs-8">
+<div class="col-xs-8 col-md-9">
 	<div class="row">
 		{{$content}}
 	</div>
 </div>
-<div class="col-xs-3">
+<div class="col-xs-3 col-md-2">
 	<div class="row">
 		<aside class="sidebar col-xs-12">
 		@include('sidebar/recentArticles')

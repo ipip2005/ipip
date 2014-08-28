@@ -25,6 +25,10 @@ class ArticleController extends BaseController
     {
     	if (!Auth::check())return Redirect::back();
     	$article = Article::find(Input::get('aid'));
+    	if (!Session::has('title')){
+    		Session::put('title',$article->title);
+    		Session::put('content',$article->content);
+    	}
         $this->layout->title = 'Edit Article';
         $this->layout->main = View::make('articles.edit')->with(compact('article'));
     }
@@ -38,33 +42,35 @@ class ArticleController extends BaseController
     }
 	public function postEdit()
 	{
-		$article = [
+		$new_article = [
 		'title' => Input::get('title'),
 		'content' => Input::get('content')
 		];
-		Session::put('title', Input::get('title'));
-		Session::put('content', Input::get('content'));
 		$rules = [
 		'title' => 'required',
 		'content' => 'required'
 				];
-		$validator = Validator::make($article, $rules);
+		$validator = Validator::make($new_article, $rules);
 		if ($validator->passes()){
-			$article = new Article($article);
+			Session::forget('title');
+			Session::forget('content');
+			$article = Article::find(Input::get('article_id'));
+			$article->title = $new_article['title'];
+			$article->content = $new_article['content'];
 			$article->save();
 			return Redirect::to('/article/show?aid='.$article->id);
 		} else{
+			Session::put('title', Input::get('title'));
+			Session::put('content', Input::get('content'));
 			return Redirect::back()->withErrors($validator);
 		}
-		$this->layout->title = 'post failed';
-		$this->layout->main = View::make('admin/dash');
 	}
 	public function postUpdateLabels(){
 		$article = Article::find(Input::get('article_id'));
 		$labels = Label::all();
 		foreach($labels as $label){
 			$article->labels()->detach($label->id);
-			if (Input::get($label->label_name) =='on')
+			if (Input::get($label->id) =='on')
 				$article->labels()->attach($label->id);
 		}
 		return Redirect::back();
@@ -81,7 +87,14 @@ class ArticleController extends BaseController
 		$comment->checked = false;
 		$comment->save();
 		$article->comment_count++;
+		$article->timestamps =false;
 		$article->save();
+		$article->timestamps =true; ;
 		return Redirect::back();
+	}
+	public function postSave(){
+		Session::put('title', Input::get('title'));
+		Session::put('content', Input::get('content'));
+		return Response::json(array('content'=>Input::get('content')));
 	}
 }

@@ -1,5 +1,7 @@
 <div class="bg-info img-rounded sidebar-in">
-	<h3 class="sidebar-title">Order By Total Visits</h3>
+	<h3 class="sidebar-title fire-text">
+		<i class="icon-fire"></i>
+		Hotest</h3>
 	@foreach($highRateArticles as $article)
 		<div class="row sidebar-item">
 			<div class="col-xs-12">

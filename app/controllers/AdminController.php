@@ -25,18 +25,20 @@ class AdminController extends BaseController {
 			'title' => Input::get('title'),
 			'content' => Input::get('content')
 		];
-		Session::put('title', Input::get('title'));
-		Session::put('content', Input::get('content'));
 		$rules = [
 			'title' => 'required',
 			'content' => 'required'
 		];
 		$validator = Validator::make($article, $rules);
 		if ($validator->passes()){
+			Session::forget('title');
+			Session::forget('content');
 			$article = new Article($article);
 			$article->save();
 			return Redirect::to('/article/show?aid='.$article->id);
 		} else{
+			Session::put('title', Input::get('title'));
+			Session::put('content', Input::get('content'));
 			return Redirect::back()->withErrors($validator);
 		}		
 	}
@@ -45,7 +47,7 @@ class AdminController extends BaseController {
 		$this->layout->main = View::make('admin/labels')->with(array('labels'=>Label::all()));
 	}
 	public function getCommentManage(){
-		$comments = Comment::orderBy ( 'id', 'desc' )->paginate ( 20 );
+		$comments = Comment::orderBy ('checked')->orderBy('id', 'desc')->paginate ( 20 );
 		$comments->getFactory ()->setViewName ( 'pagination::slider' );
 		$this->layout->title = 'ipip - Manage Comments';
 		$this->layout->main = View::make('admin/comments')->with(compact('comments'));

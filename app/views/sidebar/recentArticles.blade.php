@@ -1,5 +1,7 @@
 <div class="bg-info img-rounded sidebar-in">
-	<h3 class="sidebar-title">Recent Articles</h3>
+	<h3 class="sidebar-title soft-text">
+		<i class="icon-bolt"></i>
+		Latest</h3>
 	@foreach($recentArticles as $article)
 		<div class="row sidebar-item">
 			<div class="col-xs-12">

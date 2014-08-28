@@ -60,6 +60,7 @@ SyntaxHighlighter.all() //执行代码高亮
 		{{ Form::open(array('url' => 'admin/article')) }}
 		<pre class="bg-primary">title</pre>
 		<script id="container-title" name="title" type="text/plain">
+		{{Session::get('title')}}
 		</script>
 		<div class="col-xs-12">
 			<div class="row">
@@ -80,10 +81,11 @@ SyntaxHighlighter.all() //执行代码高亮
 		<pre class="bg-primary">content</pre>
 
 		<script id="container-content" name="content" type="text/plain">
+		{{Session::get('content')}}
 		</script>
 		{{ Form::submit('POST',['class'=>'btn btn-primary col-xs-1']) }} <input
 			Type="button" name="save"
 			class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE"
-			onclick="save_article"> {{ Form::close() }}
+			onclick="save_article()"> {{ Form::close() }}
 	</div>
 </div>
