@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'ipipblog',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '62680044',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -111,12 +111,11 @@ return array(
 
 	'redis' => array(
 
-		'cluster' => false,
+		'cluster' =>true,
 
 		'default' => array(
 			'host'     => '127.0.0.1',
 			'port'     => 6379,
-			'database' => 0,
 		),
 
 	),

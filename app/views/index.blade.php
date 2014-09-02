@@ -8,10 +8,13 @@
 			</h1>
 			
 			<div class="col-xs-6">
-				<span class="soft-text">{{$article->comment_count}} comments </span>
+				<span class="soft-text"><i class="icon-pencil"></i> {{$article->comment_count}} comments </span>
 			</div>
 			<div class="col-xs-6 align-right">
-				<span class="soft-text">created_at: {{$article->created_at}}</span>
+				<span class="soft-text"><i class="icon-group"></i> <?php
+					$count = Redis::get($article->id);
+					if ($count == '') echo '0'; else echo $count; 
+				?> visits <i class="icon-tag"></i> created_at: {{$article->created_at}}</span>
 			</div>
 			@if(count($article->labels()->get())>0)
 				@foreach($article->labels as $label)

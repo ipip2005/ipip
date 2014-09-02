@@ -30,10 +30,15 @@
 	<div class="row">
 		<div class="col-xs-12 label-title">
 			<h1 class="bg-info">
-				<a href="javascript:void(0)" class="inline">{{count($comments)}}</a>
+				<a href="javascript:void(0)" class="inline">{{count(Comment::all())}}</a>
 				Comments And<a href="javascript:void(0)" class="inline" id="new"> {{Comment::where('checked', '=', 'false')->count()}}</a>
 				New
 			</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 center-text">
+			<h3 class="soft-text inline">Pages:</h3> {{$comments->links()}}
 		</div>
 	</div>
 	@if(count($comments)>0)
@@ -103,4 +108,5 @@
 		</div>
 	</div>
 	@endif
+	
 </div>

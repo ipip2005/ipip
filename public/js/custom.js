@@ -65,6 +65,9 @@ function window_onscroll(){
 function on_load(){
 	add_event();
 }
+function countVisit(article_id){
+	$.ajax({url:'/article/visit?article_id='+article_id, type:'get', async:false});
+}
 function add_event(){
 	window.addEventListener('scroll', window_onscroll, false);
 }
@@ -125,4 +128,32 @@ function checkComment(comment_id){
 }
 function scrollToTop(){
 	$("html,body").animate({scrollTop:0});
+}
+function changeButtons(){
+	$('button#send').hide(300);
+	$('p#suretext').show(500);
+	$('a#cancel').show(500);
+	$('button#sure').show(500);
+	$('form#form').unbind();
+}
+function checkCommentNotEmpty(){
+	if ($("input[name='commenter-name']").val()=='') {
+		$('p#suretext').html('Sure not leaving a name?');
+		changeButtons();
+		return false;
+	}
+	if ($("input[name='commenter-contact-information']").val()=='') {
+		$('p#suretext').html('Sure not leaving a contact information?');
+		changeButtons();
+		return false;
+	}
+}
+function cancelSend(){
+	$("form#form").bind("submit", function(){
+		return checkCommentNotEmpty();
+	});
+	$('button#send').show(300);
+	$('p#suretext').hide(500);
+	$('a#cancel').hide(500);
+	$('button#sure').hide(500);
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     @section('title')
         <title>{{{$title}}}</title> 
-    @show
+    @show  
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('css/custom.css') }}
     {{ HTML::style('css/font-awesome.css') }}
@@ -14,6 +14,7 @@
 </head>
 <body onload="on_load()">
 <div class="wrap">
+	
 	<header id="main-header" class="main-header">
 		<div class="container">
 			<div class="row">
@@ -86,7 +87,14 @@
 							<a href="mailto:supersingerman@126.com">supersingerman@126.com</a>
 							, 我会尽快回复你。
 						</p>
-						<p class="text-center">感谢您对ipip的支持。</p>
+						<div class="text-center">
+							<p class="text-center inline">感谢您对ipip的支持。
+							
+							</p>
+						<script type="text/javascript" src="http://js.tongji.linezing.com/3513977/tongji.js"></script>
+						<noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/3513977/tongji.gif"/></a></noscript>
+						</div>
+						
 					</div>
 				</div>
 			</div>

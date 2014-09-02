@@ -14,6 +14,7 @@
 					{{$article->title}}
 				</a>
 			</div>
+			<div class="col-xs-12"><br></div>
 		</div>
 	@endforeach
 </div>

@@ -29,5 +29,6 @@ View::composer('sidebar/recentArticles', function ($view) {
 	$view->recentArticles = Article::orderBy('id', 'desc')->take(10)->get();
 });
 View::composer('sidebar/highRateArticles', function($view) {
-	$view->highRateArticles = Article::orderBy('read_count', 'desc')->take(10)->get();
+	$high = Redis::zrevrange('score', 0, 9, 'WITHSCORES');
+	$view->high = $high;
 });

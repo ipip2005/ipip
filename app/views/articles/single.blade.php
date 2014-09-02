@@ -1,6 +1,3 @@
-{{HTML::script('/js/ueditor.config.js')}}
-<!-- 编辑器源码文件 -->
-{{HTML::script('/js/ueditor.all.min.js')}}
 <div class="article-wrap">
 	<div class="col-xs-12 article-main">
 		<div class="row article-title">
@@ -23,11 +20,16 @@
 		</div>
 		<div class="right-text">
 			<div class="col-xs-6 text-left">
-				<span class="bg-default img-rounded padding-5 soft-text">created at
+				<span class="bg-default img-rounded padding-5 soft-text"><i class="icon-tag"></i> created at
 					{{$article->created_at}}</span>
 			</div>
 			<div class="col-xs-6 text-right">
-				<span class="bg-default img-rounded padding-5 soft-text">last
+				<span class="bg-default img-rounded padding-5 soft-text">
+					<i class="icon-group"></i> <?php
+					$count = Redis::get($article->id);
+					if ($count == '') echo '0'; else echo $count; 
+				?> visits 
+					<i class="icon-pencil"></i> last
 					updated at {{$article->updated_at}}</span>
 			</div>
 		</div>
@@ -167,7 +169,7 @@
 			<div class="col-xs-12">
 				<fieldset>
 					<legend class="soft-text">Leave a Comment:</legend>
-					{{Form::open(array('url'=>'article/comment'))}}
+					{{Form::open(array('url'=>'article/comment', 'id'=>'form'))}}
 					<div class="row">
 						{{Form::text('commenter-name',Input::old('username'),['placeholder'=>'Your
 						name', 'class'=>'btn-lg img-rounded col-xs-3 col-xs-offset-1'])}}
@@ -191,13 +193,29 @@
 								id="render">Render Editor</a>
 						</div>
 						<div class="col-xs-6 text-center">
-							<button class="btn btn-lg btn-primary">Send</button>
+							<button class="btn btn-lg btn-primary" id="send">Send</button>
+							<a href="javascript:void(0)"class="btn btn-lg btn-danger" id='cancel' style="display:none;"
+								onclick="cancelSend()">Cancel</a>
+							<button class="btn btn-lg btn-primary" id='sure' style="display:none;">Sure</button>
+							<p class="bg-danger" id="suretext"></p>
 						</div>
 					</div>
 					{{Form::hidden('article_id',$article->id);}} {{Form::close()}}
 					<div class="row height-5"></div>
+					<script>$(function(){
+						$("form#form").bind("submit", function(){
+							return checkCommentNotEmpty();
+						});
+						});
+					</script>
 				</fieldset>
 			</div>
 		</div>
 	</div>
 </div>
+<script>$(function(){
+	countVisit({{$article->id}})});
+</script>
+{{HTML::script('/js/ueditor.config.js')}}
+<!-- 编辑器源码文件 -->
+{{HTML::script('/js/ueditor.all.min.js')}}

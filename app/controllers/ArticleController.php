@@ -38,6 +38,7 @@ class ArticleController extends BaseController
     	if (!Auth::check())return Redirect::back();
     	$article = Article::find(Input::get('aid'));
         $article->delete();
+        Redis::zrem('score', Input::get('aid'));
         return Redirect::to('/admin/dash-board')->with('success', 'Article is deleted!');
     }
 	public function postEdit()
@@ -96,5 +97,29 @@ class ArticleController extends BaseController
 		Session::put('title', Input::get('title'));
 		Session::put('content', Input::get('content'));
 		return Response::json(array('content'=>Input::get('content')));
+	}
+	public function getVisit(){
+		if(getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknow")){
+			$ip = getenv("HTTP_CLIENT_IP");
+		}else if(getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknow")){
+			$ip = getenv("HTTP_X_FORWARDED_FOR");
+		}else if(getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknow")){
+			$ip = getenv("REMOTE_ADDR");
+		}else if(isset($_SERVER["REMOTE_ADDR"]) && $_SERVER["REMOTE_ADDR"] && strcasecmp($_SERVER["REMOTE_ADDR"],"unknow")){
+			$ip = $_SERVER["REMOTE_ADDR"];
+		}else{
+			$ip = "unknow";
+		}
+		
+		$id = Input::get('article_id');
+		$key = $id.'+'.$ip;
+		if (Redis::get($key)!= 'has'){
+			Redis::command('setnx', array($id, 0));
+			$count = Redis::get($id) + 1;
+			Redis::set($id, $count);
+			Redis::command('zadd', array('score', $count, $id));
+			Redis::command('setex', array($key, 3600, 'has'));
+		}
+		return Response::json(array('key'=>$key));
 	}
 }
