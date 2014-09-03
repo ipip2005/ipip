@@ -43,7 +43,6 @@ function window_onscroll(){
 	var main = document.getElementById('main');
 	var header_height = header.offsetHeight;
 	var bar_height = document.getElementById('navbar').offsetHeight;
-	var debug = document.getElementById('debug');
 	if (scrollTop > header_height - bar_height - 8){
 		header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
@@ -75,6 +74,10 @@ function on_load(){
     if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){  
     	add_event();
     } else{
+    	var header = document.getElementById('main-header');
+    	var main = document.getElementById('main');
+    	var header_height = header.offsetHeight;
+    	var bar_height = document.getElementById('navbar').offsetHeight;
     	header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = header_height + "px";

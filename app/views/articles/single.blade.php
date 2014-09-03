@@ -20,17 +20,21 @@
 		</div>
 		<div class="right-text">
 			<div class="col-xs-6 text-left">
-				<span class="bg-default img-rounded padding-5 soft-text"><i class="icon-tag"></i> created at
-					{{$article->created_at}}</span>
+				<span class="bg-default img-rounded padding-5 soft-text"><i
+					class="icon-tag"></i> created at {{$article->created_at}}</span>
 			</div>
 			<div class="col-xs-6 text-right">
-				<span class="bg-default img-rounded padding-5 soft-text">
-					<i class="icon-group"></i> <?php
-					$count = Redis::get($article->id);
-					if ($count == '') echo '0'; else echo $count; 
-				?> visits 
-					<i class="icon-pencil"></i> last
-					updated at {{$article->updated_at}}</span>
+				<span class="bg-default img-rounded padding-5 soft-text"> <i
+					class="icon-group"></i> <?php
+					$count = Redis::get ( $article->id );
+					if ($count == '')
+						echo '0';
+					else
+						echo $count;
+					?> visits 
+					<i class="icon-pencil"></i> last updated at
+					{{$article->updated_at}}
+				</span>
 			</div>
 		</div>
 		@if (Auth::check())
@@ -127,6 +131,9 @@
 						
 						
 						
+						
+						
+						
 						<p>
 					
 					</h4>
@@ -181,12 +188,17 @@
 					</div>
 					<div class="row">
 						{{Form::textarea('comment-content',Input::old('comment-content'),
-						['id'=>'comment-content', 'placeholder'=>'print anything you want! not empty',
-						 'class'=>'btn-lg img-rounded col-xs-12 comment-area
+						['id'=>'comment-content', 'placeholder'=>'print anything you want!
+						not empty', 'class'=>'btn-lg img-rounded col-xs-12 comment-area
 						left-text'])}}</div>
 					<div class="row">
-						<br>
+						<br> @if($errors->has()) @foreach ($errors->all() as $message)
+						<pre class="col-xs-12 btn-lg bg-danger center-text">{{$message}}</pre>
+						@endforeach @endif @if(Session::has('failure'))
+						<pre class="col-xs-12 btn-lg bg-danger center-text">{{Session::get('failure')}}</pre>
+						@endif
 					</div>
+
 					<div class="row">
 						<div class="col-xs-6 text-center">
 							<a onclick="javascript:render()" class="btn btn-lg btn-info"
@@ -194,9 +206,10 @@
 						</div>
 						<div class="col-xs-6 text-center">
 							<button class="btn btn-lg btn-primary" id="send">Send</button>
-							<a href="javascript:void(0)"class="btn btn-lg btn-danger" id='cancel' style="display:none;"
-								onclick="cancelSend()">Cancel</a>
-							<button class="btn btn-lg btn-primary" id='sure' style="display:none;">Sure</button>
+							<a href="javascript:void(0)" class="btn btn-lg btn-danger"
+								id='cancel' style="display: none;" onclick="cancelSend()">Cancel</a>
+							<button class="btn btn-lg btn-primary" id='sure'
+								style="display: none;">Sure</button>
 							<p class="bg-danger" id="suretext"></p>
 						</div>
 					</div>

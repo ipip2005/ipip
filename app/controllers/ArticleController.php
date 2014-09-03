@@ -44,12 +44,12 @@ class ArticleController extends BaseController
 	public function postEdit()
 	{
 		$new_article = [
-		'title' => Input::get('title'),
-		'content' => Input::get('content')
+			'title' => Input::get('title'),
+			'content' => Input::get('content')
 		];
 		$rules = [
-		'title' => 'required',
-		'content' => 'required'
+			'title' => 'required|max:260',
+			'content' => 'required|max:20001'
 				];
 		$validator = Validator::make($new_article, $rules);
 		if ($validator->passes()){
@@ -83,6 +83,15 @@ class ArticleController extends BaseController
 			'email' => Input::get('commenter-contact-information'),
 			'comment' => Input::get('comment-content'),
 		];
+		$rules = [
+			'commenter' => 'max:255',
+			'email' => 'max:255',
+			'comment' => 'required|max:5000'
+		];
+		$validator = Validator::make($comment, $rules);
+		if (!$validator->passes()){
+			return Redirect::back()->withErrors($validator);
+		}
 		$comment = new Comment($comment);
 		$comment->article_id = $article->id;
 		$comment->checked = false;
