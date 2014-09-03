@@ -37,25 +37,25 @@
 						Home
 					</a>
 				</li>
-				<li class="shouldhideonscroll">
+				<li class="shouldhideonscroll hidden-xs">
 					<a href="https://github.com/ipip2005" target="_blank">
 						<i class="icon-github icon-2x myicon"></i>
 						My-GitHub
 					</a>
 				</li>
-				<li class="shouldhideonscroll">
+				<li class="shouldhideonscroll hidden-xs">
 					<a href="http://blog.csdn.net/ipip2005" target="_blank">
 						<i class="icon-sign-blank icon-2x myicon"></i>
 						My-CSND
 					</a>
 				</li>
-				<li class="shouldhideonscroll">
+				<li class="shouldhideonscroll hidden-sm hidden-xs">
 					<a href="javascript:void(0)" id="ele9" class="tigger" target="_blank">
 						<i class="icon-user icon-2x myicon"></i>
 						Contact-Me
 					</a>
 				</li>
-				<li class="shouldhideonscroll">
+				<li class="shouldhideonscroll hidden-sm hidden-xs">
 					<a href="javascript:bookmarksite('ipip\'s blog','http://ipipblog')">
 						<i class="icon-star-empty icon-2x myicon"></i>
 						Add-as-Favorite

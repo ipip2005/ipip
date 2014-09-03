@@ -10,7 +10,7 @@
 		{{$content}}
 	</div>
 </div>
-<div class="col-xs-0 col-md-2">
+<div class="col-xs-0 col-xs-offset-1 col-md-2 col-md-offset-0">
 	<div class="row">
 		<aside class="sidebar col-xs-12">
 		@include('sidebar/recentArticles')

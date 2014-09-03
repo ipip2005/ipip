@@ -63,7 +63,23 @@ function window_onscroll(){
 	}
 }
 function on_load(){
-	add_event();
+	var sUserAgent = navigator.userAgent.toLowerCase();  
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";  
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";  
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";  
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";  
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";  
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";  
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";  
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";  
+    if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ){  
+    	add_event();
+    } else{
+    	header.style.position = "fixed";
+		header.style.top = "" + (bar_height - header_height + 8) + "px";
+		main.style.paddingTop = header_height + "px";
+    }
+		
 }
 function countVisit(article_id){
 	$.ajax({url:'/article/visit?article_id='+article_id, type:'get', async:false});
