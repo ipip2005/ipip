@@ -6,7 +6,7 @@ class CommentController extends BaseController
 	public function getDelete(){
 		if (!Auth::check())return Redirect::back();
 		$comment = Comment::find(Input::get('cid'));
-		if ($comment->article_id!=''){
+		if ($comment->article_id!='' & $comment->article_id!='0'){
 			$article = Article::find($comment->article_id);
 			$article->comment_count--;
 			$article->timestamps =false;
