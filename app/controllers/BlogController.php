@@ -19,7 +19,10 @@ class BlogController extends BaseController {
 	 * generate Home Page.
 	 */
 	public function getIndex() {
-		$articles = Article::orderBy ( 'id', 'desc' )->paginate ( 20 );
+		if (Auth::check()){
+			$articles = Article::orderBy ( 'id', 'desc' )->paginate ( 20 );
+		} else
+			$articles = Article::where('hidden', '=', 'false')->orderBy ( 'id', 'desc' )->paginate ( 20 );
 		$articles->getFactory ()->setViewName ( 'pagination::slider' );
 		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
 		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles' ) );
@@ -63,6 +66,9 @@ class BlogController extends BaseController {
 	}
 	public function getLogout(){
 		Auth::Logout();
+		return Redirect::to('/');
+	}
+	public function missingMethod($parameters = array()){
 		return Redirect::to('/');
 	}
 }

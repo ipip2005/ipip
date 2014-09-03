@@ -11,7 +11,11 @@
 				<span class="soft-text"><i class="icon-pencil"></i> {{$article->comment_count}} comments </span>
 			</div>
 			<div class="col-xs-6 align-right">
-				<span class="soft-text"><i class="icon-group"></i> <?php
+				<span class="soft-text">
+					@if(Auth::check() && $article->hidden)
+					<div class="inline fire-text">HIDDEN</div>
+					@endif
+					<i class="icon-group"></i> <?php
 					$count = Redis::get($article->id);
 					if ($count == '') echo '0'; else echo $count; 
 				?> visits <i class="icon-tag"></i> created_at: {{$article->created_at}}</span>

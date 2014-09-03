@@ -80,7 +80,7 @@ function on_load(){
     	var bar_height = document.getElementById('navbar').offsetHeight;
     	header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
-		main.style.paddingTop = header_height + "px";
+		main.style.paddingTop = bar_height + "px";
     }
 		
 }
@@ -175,4 +175,8 @@ function cancelSend(){
 	$('p#suretext').hide(500);
 	$('a#cancel').hide(500);
 	$('button#sure').hide(500);
+}
+function toggleHidingButton(article_id){
+	var text = $.ajax({'url':'/article/toggle?article_id='+article_id,type:'get',async:false});
+	$('button#hiding').html(text.responseText);
 }

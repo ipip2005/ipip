@@ -26,7 +26,10 @@ Route::controller('/', 'BlogController');
 
 /* View Composer */
 View::composer('sidebar/recentArticles', function ($view) {
-	$view->recentArticles = Article::orderBy('id', 'desc')->take(10)->get();
+	if (Auth::check()){
+		$view->recentArticles = Article::orderBy ( 'id', 'desc' )->take(10)->get();
+	} else
+		$view->recentArticles = Article::where('hidden', '=', 'false')->orderBy ( 'id', 'desc' )->take(10)->get();
 });
 View::composer('sidebar/highRateArticles', function($view) {
 	$high = Redis::zrevrange('score', 0, 9, 'WITHSCORES');

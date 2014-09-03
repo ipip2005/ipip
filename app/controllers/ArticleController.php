@@ -131,4 +131,20 @@ class ArticleController extends BaseController
 		}
 		return Response::json(array('key'=>$key));
 	}
+	public function getToggle(){
+		$article = Article::find(Input::get('article_id'));
+		if ($article->hidden){
+			$article->hidden = false;
+			$article->timestamps =false;
+			$article->save();
+			$article->timestamps =true;
+			return 'Hide';
+		} else{
+			$article->hidden = true;
+			$article->timestamps =false;
+			$article->save();
+			$article->timestamps =true; ;
+			return 'Show';
+		}
+	}
 }
