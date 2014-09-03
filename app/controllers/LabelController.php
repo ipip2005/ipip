@@ -4,8 +4,8 @@ class LabelController extends BaseController
 {
 	public function getCreate(){
 		$label = [
-			'label_name' => Input::get('label_name'),
-			'father_label_id' => Input::get('father_label_name')
+			'label_name' => urldecode(Input::get('label_name')),
+			'father_label_id' => urldecode(Input::get('father_label_name'))
 		];
 		$rules =[
 			'label_name' => 'required'
@@ -24,7 +24,7 @@ class LabelController extends BaseController
 	}
 	public function getDelete(){
 		$label = [
-			'label_name' =>Input::get('label_name'),
+			'label_name' =>urldecode(Input::get('label_name')),
 		];
 		$rules =[
 			'label_name' => 'required'

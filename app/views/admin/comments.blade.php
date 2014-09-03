@@ -69,7 +69,7 @@
 				<h3 class="col-xs-12">{{$comment->comment}}</h3>
 				<h4 class="bg-info inline col-xs-7 col-xs-offset-1 img-rounded">
 				<?php
-					if ($comment->article_id!='') echo Article::find($comment->article_id)->title;else
+					if ($comment->article_id!='' & $comment->article_id!='0') echo Article::find($comment->article_id)->title;else
 						echo 'From Message Board' 
 				?></h4>
 				<div class="col-xs-4 text-right">
@@ -92,7 +92,7 @@
 							</div>
 					
 							@endif 
-							@if($comment->article_id!='')
+							@if($comment->article_id!='' && $comment->article_id!='0')
 							<a
 								href="/article/show?aid=<?php echo $comment->article_id.'#'.$comment->id?>"
 								class="btn btn-primary" onclick="checkComment({{$comment->id}})">GO</a>
