@@ -26,8 +26,8 @@ class AdminController extends BaseController {
 			'content' => Input::get('content')
 		];
 		$rules = [
-			'title' => 'required|max:260',
-			'content' => 'required|max:20001'
+			'title' => 'required|max:1010',
+			'content' => 'required|max:100001'
 		];
 		$validator = Validator::make($article, $rules);
 		if ($validator->passes()){

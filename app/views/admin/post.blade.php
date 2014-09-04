@@ -14,7 +14,7 @@ SyntaxHighlighter.all() //执行代码高亮
 	var uet = UE.getEditor('container-title',{
         initialFrameHeight : 30,
         saveInterval : 10000,
-        maximumWords : 256,
+        maximumWords : 1000,
         elementPathEnabled : false,
        	textarea : 'title',
        	topOffset : 32,
@@ -42,7 +42,7 @@ SyntaxHighlighter.all() //执行代码高亮
     	topOffset : 42,
         initialFrameHeight : 600,
         saveInterval : 10000,
-        maximumWords : 20000,
+        maximumWords : 100000,
         textarea : 'content',
         allowDivTransToP:false,
         maxUndoCount : 50,
