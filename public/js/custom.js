@@ -82,6 +82,10 @@ function on_load(){
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = bar_height + "px";
     }
+    $('.article-content img').height('auto');
+    $('.article-content img').css("opacity", "0.7")
+    $('.article-content img').mouseenter(function(){$(this).fadeTo(500, 1)});
+    $('.article-content img').mouseleave(function(){$(this).fadeTo(100, 0.7)});
 		
 }
 function countVisit(article_id){

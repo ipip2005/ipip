@@ -33,10 +33,10 @@ header.main-header{
 .blog-title a:hover{
 	text-decoration:none;
 	-webkit-filter:drop-shadow(4px 4px 4px #444);
-	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
 }
 a:hover.bigger{
-	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
 }
 .blog-title a{
 	font-weight:700;
@@ -140,7 +140,7 @@ div.navbar{
 	float:left;
 }
 .link li.active a{
-	-webkit-transform:scale(1.1);
+	transform:scale(1.1);
 	color:#000;
 	border-bottom:2px solid #37afe4;
 }
@@ -167,7 +167,7 @@ a:hover .fan-img{
 	-webkit-filter: drop-shadow(3px 3px 3px #888);
 }
 .nav li a:hover{
-	-webkit-transform:scale(1.2);
+	transform:scale(1.2);
 	background:transparent;
 }
 .admin-img{
@@ -196,10 +196,8 @@ a:hover .fan-img{
 	border-radius:20px;
 	background-color:#fefefe;
 }
-.article-main .article-title{
-	
-}
-.article-main .article-content{
+.article-main .article-content img{
+	max-width:100%;
 }
 .article-divider{
 	width:100%;

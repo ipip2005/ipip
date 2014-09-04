@@ -5,12 +5,12 @@
 		</button>
 	</div>
 </div>
-<div class="col-xs-11 col-md-9">
+<div class="col-xs-11 col-md-9 col-lg-8">
 	<div class="row">
 		{{$content}}
 	</div>
 </div>
-<div class="col-xs-0 col-xs-offset-1 col-md-2 col-md-offset-0">
+<div class="col-xs-0 col-xs-offset-1 col-md-2 col-md-offset-0 col-lg-3 col-lg-offset-0">
 	<div class="row">
 		<aside class="sidebar col-xs-12">
 		@include('sidebar/recentArticles')
