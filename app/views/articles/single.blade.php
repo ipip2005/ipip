@@ -1,3 +1,16 @@
+<!-- modal dialog for creating a dialog when click on the picture
+  -- it should be autofit-width -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+	id="pic-modal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-body">
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <div class="article-wrap">
 	<div class="col-xs-12 article-main">
 		<div class="row article-title">
@@ -66,13 +79,9 @@
 					</div>
 				</div>
 			</div>
-			<button class="btn btn-primary col-xs-2 margin-5" onclick="toggleHidingButton({{$article->id}})" id='hiding'>
-			@if($article->hidden)
-			Show
-			@else
-			Hide
-			@endif
-			</button>
+			<button class="btn btn-primary col-xs-2 margin-5"
+				onclick="toggleHidingButton({{$article->id}})" id='hiding'>
+				@if($article->hidden) Show @else Hide @endif</button>
 			<button class="btn btn-primary col-xs-2 margin-5" data-toggle="modal"
 				data-target="#modal-label">Label</button>
 			<div class="modal fade" id="modal-label" tabindex="-1" role="dialog"
@@ -138,9 +147,6 @@
 						
 						
 						
-						
-						
-						
 						<p>
 					
 					</h4>
@@ -186,7 +192,8 @@
 					{{Form::open(array('url'=>'article/comment', 'id'=>'form'))}}
 					<div class="row">
 						{{Form::text('commenter-name',Input::old('username'),
-						['placeholder'=>'Your name', 'class'=>'btn-lg img-rounded col-xs-3 col-xs-offset-1'])}}
+						['placeholder'=>'Your name', 'class'=>'btn-lg img-rounded col-xs-3
+						col-xs-offset-1'])}}
 						{{Form::text('commenter-contact-information',Input::old('contact-information'),
 						['placeholder'=>'email address or something','class'=>'btn-lg
 						img-rounded col-xs-6 col-xs-offset-1'])}}</div>
@@ -195,10 +202,8 @@
 					</div>
 					<div class="row">
 						{{Form::textarea('comment-content',Input::old('comment-content'),
-						['id'=>'comment-content', 'placeholder'=>'
-						print anything you want!
-						not empty', 'class'=>'btn-lg img-rounded col-xs-12 comment-area
-						left-text'])}}</div>
+						['id'=>'comment-content', 'placeholder'=>' print anything you want! not empty', 'class'=>'btn-lg img-rounded col-xs-12
+						comment-area left-text'])}}</div>
 					<div class="row">
 						<br> @if($errors->has()) @foreach ($errors->all() as $message)
 						<pre class="col-xs-12 btn-lg bg-danger center-text">{{$message}}</pre>
