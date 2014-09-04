@@ -41,7 +41,8 @@
 		<div class="row article-control">
 			<div class="col-xs-3"></div>
 			<button class="btn btn-primary col-xs-2 margin-5"
-				onclick="window.location.href='/article/edit?aid=<?php echo $article->id?>'">
+				onclick="removeSession();
+					window.location.href='/article/edit?aid=<?php echo $article->id?>';">
 				Edit</button>
 			<button class="btn btn-primary col-xs-2 margin-5" data-toggle="modal"
 				data-target="#modal-delete">Delete</button>

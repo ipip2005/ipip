@@ -39,11 +39,12 @@ SyntaxHighlighter.all() //执行代码高亮
                ]
     });
     var ue = UE.getEditor('container-content',{
-    	topOffset : 40,
+    	topOffset : 42,
         initialFrameHeight : 600,
         saveInterval : 10000,
         maximumWords : 20000,
         textarea : 'content',
+        allowDivTransToP:false,
         maxUndoCount : 50,
         maxInputCount : 1
     });
@@ -59,9 +60,7 @@ SyntaxHighlighter.all() //执行代码高亮
 	<div class="editor-wrap">
 		{{ Form::open(array('url' => 'admin/article')) }}
 		<pre class="bg-primary">title</pre>
-		<script id="container-title" name="title" type="text/plain">
-		{{Session::get('title')}}
-		</script>
+		<script id="container-title" name="title" type="text/plain">{{Session::get('title')}}</script>
 		<div class="col-xs-12">
 			<div class="row">
 				@if(Session::has('error')) <span
@@ -80,9 +79,7 @@ SyntaxHighlighter.all() //执行代码高亮
 		@endif
 		<pre class="bg-primary">content</pre>
 
-		<script id="container-content" name="content" type="text/plain">
-		{{Session::get('content')}}
-		</script>
+		<script id="container-content" name="content" type="text/plain">{{Session::get('content')}}</script>
 		{{ Form::submit('POST',['class'=>'btn btn-primary col-xs-1']) }} <input
 			Type="button" name="save"
 			class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE"

@@ -32,7 +32,10 @@ class ArticleController extends BaseController
         $this->layout->title = 'Edit Article';
         $this->layout->main = View::make('articles.edit')->with(compact('article'));
     }
-
+	public function getRemoveSession(){
+		Session::forget('title');
+		Session::forget('content');
+	}
     public function getDelete()
     {
     	if (!Auth::check())return Redirect::back();

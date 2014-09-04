@@ -167,6 +167,9 @@ function checkCommentNotEmpty(){
 		return false;
 	}
 }
+function removeSession(){
+	$.ajax({url:'/article/remove-session',type:'get',async:false});
+}
 function cancelSend(){
 	$("form#form").bind("submit", function(){
 		return checkCommentNotEmpty();

@@ -36,6 +36,7 @@ SyntaxHighlighter.all() //执行代码高亮
                ]
     });
     var ue = UE.getEditor('container-content',{
+    	topOffset : 42,
         initialFrameHeight : 600,
         saveInterval : 10000,
         maximumWords : 20000,
@@ -59,9 +60,7 @@ SyntaxHighlighter.all() //执行代码高亮
 	<div class="editor-wrap">
 		{{ Form::open(array('url' => 'article/edit')) }}
 		<pre class="bg-primary">title</pre>
-		<script id="container-title" name="title" type="text/plain">
-			{{Session::get('title')}}
-		</script>
+		<script id="container-title" name="title" type="text/plain">{{Session::get('title')}}</script>
 		@if($errors->has())
 			@foreach ($errors->all() as $message)
 			<pre class="bg-danger">{{$message}}</pre>
@@ -72,14 +71,11 @@ SyntaxHighlighter.all() //执行代码高亮
 		@endif
 		<pre class="bg-primary">content</pre>
 		
-		<script id="container-content" name="content" type="text/plain">
-			{{Session::get('content')}}
-		</script>
+		<script id="container-content" name="content" type="text/plain">{{Session::get('content')}}</script>
 		{{ Form::hidden('article_id',$article->id)}}
 		{{ Form::submit('UPDATE',['class'=>'btn btn-primary col-xs-1']) }}
 		<input Type="button" name="save" class="btn btn-primary col-xs-1 col-xs-offset-10" value="SAVE" onclick="save_article()">
 		{{ Form::close() }}
-		<script type="text/javascript">
-		</script>
+		<script type="text/javascript"></script>
 	</div>
 </div>
