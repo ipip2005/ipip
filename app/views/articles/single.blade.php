@@ -226,7 +226,9 @@
 							<p class="bg-danger" id="suretext"></p>
 						</div>
 					</div>
-					{{Form::hidden('article_id',$article->id);}} {{Form::close()}}
+					{{Form::hidden('article_id',$article->id);}}
+					{{Form::hidden('ip_address',$;}} 
+					{{Form::close()}}
 					<div class="row height-5"></div>
 					<script>$(function(){
 						$("form#form").bind("submit", function(){
