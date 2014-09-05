@@ -199,6 +199,9 @@ a:hover .fan-img{
 	border-radius:20px;
 	background-color:#fefefe;
 }
+.article-main .article-content{
+	padding-bottom:15px;
+}
 .article-main .article-content img{
 	max-width:100%;
 }

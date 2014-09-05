@@ -4,13 +4,6 @@ use Illuminate\Support\Facades\Redirect;
 class ArticleController extends BaseController
 {
 
-    /* get functions */
-    public function listArticle()
-    {
-        $articles = Article::orderBy('id', 'desc')->paginate(10);
-        $this->layout->title = 'Article listings';
-        $this->layout->main = View::make('dash')->nest('content', 'articles.list', compact('articles'));
-    }
     public function getShow()
     {
     	$article = Article::findOrFail(Input::get('aid'));
@@ -95,6 +88,7 @@ class ArticleController extends BaseController
 		if (!$validator->passes()){
 			return Redirect::back()->withErrors($validator);
 		}
+		if ($this->commentTooMuch()) return Redirect::back()->with('failure', 'too many comments from you, please contact admin-ipip');
 		$comment = new Comment($comment);
 		$comment->article_id = $article->id;
 		$comment->checked = false;
@@ -105,12 +99,18 @@ class ArticleController extends BaseController
 		$article->timestamps =true; ;
 		return Redirect::back();
 	}
-	public function postSave(){
-		Session::put('title', Input::get('title'));
-		Session::put('content', Input::get('content'));
-		return Response::json(array('content'=>Input::get('content')));
+	public function commentTooMuch(){
+		$ip = $this->getIpAddress();
+		$key = 'comment_from_'.$ip;
+		if (Redis::exists($key)){
+			Redis::set($key, Redis::get($key)+1);
+		} else {
+			Redis::command('setex', array($key, 86400, '1'));
+		}
+		if (Redis::get($key)>50)
+		return true;
 	}
-	public function getVisit(){
+	public function getIpAddress(){
 		if(getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknow")){
 			$ip = getenv("HTTP_CLIENT_IP");
 		}else if(getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), "unknow")){
@@ -122,9 +122,17 @@ class ArticleController extends BaseController
 		}else{
 			$ip = "unknow";
 		}
-		
+		return $ip;
+	}
+	public function postSave(){
+		Session::put('title', Input::get('title'));
+		Session::put('content', Input::get('content'));
+		return Response::json(array('content'=>Input::get('content')));
+	}
+	public function getVisit(){
 		$id = Input::get('article_id');
 		Article::findOrFail($id);
+		$ip = $this->getIpAddress();
 		$key = $id.'+'.$ip;
 		if (Redis::get($key)!= 'has'){
 			Redis::command('setnx', array($id, 0));

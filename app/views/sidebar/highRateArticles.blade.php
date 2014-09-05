@@ -1,7 +1,7 @@
 <div class="bg-info img-rounded sidebar-in">
 	<h3 class="sidebar-title fire-text">
 		<i class="icon-fire"></i>
-		Hotest</h3>
+		Hot</h3>
 	@foreach($high as $num => $data)
 	<?php
 		$id = $data[0];
