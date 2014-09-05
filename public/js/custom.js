@@ -47,7 +47,7 @@ function window_onscroll(){
 		header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = header_height + "px";
-		$('.shouldhideonscroll').hide(500);
+		$('.shouldhideonscroll').hide(1000);
 	} else{
 		header.style.position = "relative";
 		header.style.top = "0px";

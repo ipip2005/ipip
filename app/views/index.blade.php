@@ -1,3 +1,6 @@
+<div class="col-xs-12">
+{{$articles->links()}}
+</div>
 @foreach($articles as $article)
 	<article class="article col-xs-12">
 		<header class="article-header row img-rounded bg-success">
@@ -25,8 +28,9 @@
 				<a
 				href="/article-at-label?label_id=<?php echo $label->id?>"
 				class="col-xs-4 col-md-2 text-center bigger">
-				<p class="bg-primary img-rounded padding-5">{{$label->label_name}}</p>
+				<p class="bg-warning img-rounded soft-text">{{$label->label_name}}</p>
 				</a>
+				
 				@endforeach	
 		
 			@endif
@@ -36,4 +40,6 @@
 		</footer>
 	</article>
 @endforeach
+<div class="col-xs-12">
 {{$articles->links()}}
+</div>
