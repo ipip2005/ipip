@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta name="baidu-site-verification" content="luGPWLcu4t" />
     @section('title')
         <title>{{{$title}}}</title> 
     @show  
@@ -11,6 +12,7 @@
     {{ HTML::style('css/font-awesome.css') }}
      <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 	{{ HTML::script('./js/bootstrap.min.js') }}
+	
 </head>
 <body onload="on_load()">
 <div class="wrap">
