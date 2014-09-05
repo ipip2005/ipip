@@ -1,3 +1,12 @@
+<!-- 配置文件 -->
+<script type="text/javascript"
+	src="/js/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet"
+	href="/js/third-party/SyntaxHighlighter/shCoreDefault.css"
+	type="text/css" />
+<script>
+SyntaxHighlighter.all() //执行代码高亮
+</script>
 <!-- modal dialog for creating a dialog when click on the picture
   -- it should be autofit-width -->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
