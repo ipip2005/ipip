@@ -197,7 +197,7 @@ a:hover .fan-img{
 .article-main{
 	border:2px solid #a1a1a1;
 	border-radius:20px;
-	background-color:#fefefe;
+	background:#fefefe;
 }
 .article-main .article-content{
 	padding-bottom:15px;
@@ -274,7 +274,9 @@ a:hover .fan-img{
 	color:#e0110c;
 	font-family: 'Open Sans', 'trebuchet ms', arial, sans-serif;
 }
-
+.bg-custom{
+	background:#fbfbfb;
+}
 .blur{
 	-webkit-filter: blur(10px); /* Chrome, Opera */
        -moz-filter: blur(10px);
