@@ -13,7 +13,7 @@ class ArticleController extends BaseController
     }
     public function getShow()
     {
-    	$article = Article::find(Input::get('aid'));
+    	$article = Article::findOrFail(Input::get('aid'));
         $comments = $article->comments()->get();
         $mylabels = $article->labels()->get();
         $labels = Label::all();
@@ -24,7 +24,7 @@ class ArticleController extends BaseController
     public function getEdit()
     {
     	if (!Auth::check())return Redirect::back();
-    	$article = Article::find(Input::get('aid'));
+    	$article = Article::findOrFail(Input::get('aid'));
     	if (!Session::has('title')){
     		Session::put('title',$article->title);
     		Session::put('content',$article->content);
@@ -39,7 +39,7 @@ class ArticleController extends BaseController
     public function getDelete()
     {
     	if (!Auth::check())return Redirect::back();
-    	$article = Article::find(Input::get('aid'));
+    	$article = Article::findOrFail(Input::get('aid'));
         $article->delete();
         Redis::zrem('score', Input::get('aid'));
         return Redirect::to('/admin/dash-board')->with('success', 'Article is deleted!');
@@ -58,7 +58,7 @@ class ArticleController extends BaseController
 		if ($validator->passes()){
 			Session::forget('title');
 			Session::forget('content');
-			$article = Article::find(Input::get('article_id'));
+			$article = Article::findOrFail(Input::get('article_id'));
 			$article->title = $new_article['title'];
 			$article->content = $new_article['content'];
 			$article->save();
@@ -70,7 +70,7 @@ class ArticleController extends BaseController
 		}
 	}
 	public function postUpdateLabels(){
-		$article = Article::find(Input::get('article_id'));
+		$article = Article::findOrFail(Input::get('article_id'));
 		$labels = Label::all();
 		foreach($labels as $label){
 			$article->labels()->detach($label->id);
@@ -80,7 +80,7 @@ class ArticleController extends BaseController
 		return Redirect::back();
 	}
 	public function postComment(){
-		$article = Article::find(Input::get('article_id'));
+		$article = Article::findOrFail(Input::get('article_id'));
 		$comment = [
 			'commenter' => Input::get('commenter-name'),
 			'email' => Input::get('commenter-contact-information'),
@@ -124,6 +124,7 @@ class ArticleController extends BaseController
 		}
 		
 		$id = Input::get('article_id');
+		Article::findOrFail($id);
 		$key = $id.'+'.$ip;
 		if (Redis::get($key)!= 'has'){
 			Redis::command('setnx', array($id, 0));
