@@ -27,8 +27,8 @@
 				@foreach($article->labels as $label)
 				<a
 				href="/article-at-label?label_id=<?php echo $label->id?>"
-				class="col-xs-4 col-md-2 text-center bigger">
-				<p class="bg-warning img-rounded soft-text">{{$label->label_name}}</p>
+				class="col-xs-4 col-md-2 text-center bigger inline">
+				<p class="bg-custom img-rounded soft-text">{{$label->label_name}}</p>
 				</a>
 				
 				@endforeach	

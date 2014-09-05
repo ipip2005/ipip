@@ -90,7 +90,7 @@
 							, 我会尽快回复你。
 						</p>
 						<div class="text-center">
-							<p class="text-center inline">感谢您对ipip的支持。
+							<p class="text-center inline">转载请注明ipipblog.net,感谢您对ipip的支持。
 							
 							</p>
 						<script type="text/javascript" src="http://js.tongji.linezing.com/3513977/tongji.js"></script>

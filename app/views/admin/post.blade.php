@@ -46,7 +46,7 @@ SyntaxHighlighter.all() //执行代码高亮
         textarea : 'content',
         allowDivTransToP:false,
         maxUndoCount : 50,
-        maxInputCount : 1
+        maxInputCount : 1,
     });
 </script>
 
