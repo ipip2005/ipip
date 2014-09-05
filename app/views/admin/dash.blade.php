@@ -59,7 +59,7 @@
 	<div class="row admin-row">
 		<div class="col-xs-12">
 			<a href="/admin/hidden-articles">
-				<img alt="Comment" src="/i/logout.jpg" class="admin-img img-rounded fan-img">
+				<img alt="Comment" src="/i/hidden.jpg" class="admin-img img-rounded fan-img">
 			</a>
 		</div>
 	</div>

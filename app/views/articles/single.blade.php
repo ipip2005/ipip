@@ -81,7 +81,10 @@
 			</div>
 			<button class="btn btn-primary col-xs-2 margin-5"
 				onclick="toggleHidingButton({{$article->id}})" id='hiding'>
-				@if($article->hidden) Show @else Hide @endif</button>
+				@if($article->hidden) Show 
+				@else Hide 
+				@endif
+			</button>
 			<button class="btn btn-primary col-xs-2 margin-5" data-toggle="modal"
 				data-target="#modal-label">Label</button>
 			<div class="modal fade" id="modal-label" tabindex="-1" role="dialog"
@@ -226,8 +229,7 @@
 							<p class="bg-danger" id="suretext"></p>
 						</div>
 					</div>
-					{{Form::hidden('article_id',$article->id);}}
-					{{Form::hidden('ip_address',$;}} 
+					{{Form::hidden('article_id',$article->id)}}
 					{{Form::close()}}
 					<div class="row height-5"></div>
 					<script>$(function(){

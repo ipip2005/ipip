@@ -52,4 +52,10 @@ class AdminController extends BaseController {
 		$this->layout->title = 'ipip - Manage Comments';
 		$this->layout->main = View::make('admin/comments')->with(compact('comments'));
 	}
+	public function getHiddenArticles(){
+		$articles = Article::where('hidden', '=', '1')->orderBy('updated_at', 'desc')->paginate(10);
+		$articles->getFactory ()->setViewName ( 'pagination::slider' );
+		$this->layout->title = 'ipip - HiddenArticles';
+		$this->layout->main = View::make ( 'index' )->with('articles', $articles);
+	}
 }
