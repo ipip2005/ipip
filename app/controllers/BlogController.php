@@ -23,13 +23,14 @@ class BlogController extends BaseController {
 			$articles = Article::orderBy ( 'id', 'desc' )->paginate ( 20 );
 		} else
 			$articles = Article::where('hidden', '=', 'false')->orderBy ( 'id', 'desc' )->paginate ( 20 );
-		$articles->getFactory ()->setViewName ( 'pagination::slider' );
+		$articles->getFactory ()->setViewName ( 'pagination::slider-3' );
 		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
 		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles' ) );
 	}
 	public function getArticleAtLabel(){
 		$label = Label::find(Input::get('label_id'));
 		$articles = $label->articles()->paginate( 20 );
+		$articles->getFactory ()->setViewName ( 'pagination::slider-3' );
 		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
 		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles') );
 	}

@@ -4,13 +4,6 @@ use Illuminate\Support\Facades\Redirect;
 class ArticleController extends BaseController
 {
 
-    /* get functions */
-    public function listArticle()
-    {
-        $articles = Article::orderBy('id', 'desc')->paginate(10);
-        $this->layout->title = 'Article listings';
-        $this->layout->main = View::make('dash')->nest('content', 'articles.list', compact('articles'));
-    }
     public function getShow()
     {
     	$article = Article::findOrFail(Input::get('aid'));
