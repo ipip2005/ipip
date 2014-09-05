@@ -17,7 +17,7 @@ class ArticleController extends BaseController
         $comments = $article->comments()->get();
         $mylabels = $article->labels()->get();
         $labels = Label::all();
-        $this->layout->title = 'ipip\'s Blog';
+        $this->layout->title = strip_tags($article->title);
         $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'mylabels', 'labels'));
     }
 
