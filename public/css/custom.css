@@ -188,6 +188,9 @@ a:hover .fan-img{
 	width:960px;
 	margin:0 auto 50px;
 }
+.home-wrap{
+	min-width:700px;
+}
 .article-wrap{
 	padding:25px;
 }
@@ -215,6 +218,9 @@ a:hover .fan-img{
 	background-color:#17a689;
 	height:3px;
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+}
+.article-content .code{
+	max-width:95%
 }
 .align-right{
 	text-align:right;
