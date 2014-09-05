@@ -19,6 +19,7 @@ SyntaxHighlighter.all() //执行代码高亮
                    [
                        'subscript', //下标
                        'superscript', //上标
+                       'pasteplain',
                        '|', //分隔线
                        'time', //时间
                        'date', //日期
