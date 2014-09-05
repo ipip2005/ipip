@@ -31,7 +31,7 @@ SyntaxHighlighter.all() //执行代码高亮
 		<div class="row article-labels">
 			@foreach($mylabels as $label) <a
 				href="/article-at-label?label_id=<?php echo $label->id?>"
-				class="col-xs-4 col-md-2 text-center bigger">
+				class="col-xs-4 col-md-2 text-center bigger inline">
 				<p class="bg-info img-rounded soft-text">{{$label->label_name}}</p>
 			</a> @endforeach
 
