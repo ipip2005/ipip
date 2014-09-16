@@ -90,11 +90,10 @@
 							, 我会尽快回复你。
 						</p>
 						<div class="text-center">
-							<p class="text-center inline">转载请注明ipipblog.net,感谢您对ipip的支持。
-							
-							</p>
+							<p class="text-center inline">转载请注明ipipblog.net,感谢您对ipip的支持。</p>
 						<script type="text/javascript" src="http://js.tongji.linezing.com/3513977/tongji.js"></script>
 						<noscript><a href="http://www.linezing.com"><img src="http://img.tongji.linezing.com/3513977/tongji.gif"/></a></noscript>
+						<a href="http://www.miitbeian.gov.cn/"> 浙ICP备14032327号</a>
 						</div>
 						
 					</div>
