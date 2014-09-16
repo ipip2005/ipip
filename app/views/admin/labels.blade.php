@@ -65,6 +65,7 @@
 					</div>
 				</div>
 			</form>
+			">
 			<i class="icon-plus"></i>
 		</a>
 		<a tabindex="0" class="btn btn-lg btn-danger bs-docs-popover col-xs-2 margin-5" data-toggle="popover" 
@@ -82,6 +83,7 @@
 					</div>
 				</div>
 			</form>
+			">
 			<i class="icon-minus"></i>
 		</a>
 		<script>
