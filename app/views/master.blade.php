@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="baidu-site-verification" content="luGPWLcu4t" />
+    <meta name="baidu-site-verification" content="khsljLdhkV" /> 
     @section('title')
         <title>{{{$title}}}</title> 
     @show  
