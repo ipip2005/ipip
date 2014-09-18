@@ -22,13 +22,16 @@ Route::controller('/article', 'ArticleController');
 Route::controller('/admin', 'AdminController');
 Route::controller('/label', 'LabelController');
 Route::controller('/comment', 'CommentController');
-Route::group(array('domain'=>'{sub}.ipipblog'), function(){
+Route::group(array('domain'=>'{sub}.ipipblog.net'), function(){
 	Route::get('/', function($sub){
 		if ($sub == 'tools') {
 			$layout = View::make('master');
 			$layout->title = 'ipip Tools, ipip的工具箱';
 			$layout->main = View::make('tools/tools');
 			return $layout;
+		} else
+		if ($sub == 'www'){
+			return Redirect::to('home');
 		} else{
 			App::abort(404);
 		}
