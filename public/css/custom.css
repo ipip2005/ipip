@@ -292,3 +292,6 @@ a.inline:hover{
 p,a{
 	word-wrap:break-word;
 }
+.baidu-search{
+	padding-top:10px;
+}
