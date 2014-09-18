@@ -23,7 +23,7 @@
 				<div class="col-xs-12">
 					<div class="blog-title">
 						<h1>
-							<a href="/">ipip's blog</a>
+							<a href="http://ipipblog.net">ipip's blog</a>
 						</h1>
 						<label><h2>A Level 1 Light Mage</h2></label>
 					</div>
@@ -34,7 +34,7 @@
 		<div id="navbar" class="link">
 			<ul class="nav">
 				<li class="active">
-					<a href="/" target="_top">
+					<a href="http://ipipblog.net" target="_top">
 						<i class="icon-home icon-2x myicon"></i>
 						Home
 					</a>
@@ -65,7 +65,7 @@
 				</li>
 				@if(Auth::check())
 				<li>
-					<a href="/admin/dash-board">
+					<a href="http://ipipblog.net/admin/dash-board">
 						<i class="icon-leaf icon-2x myicon"></i>
 						Dash-Board
 					</a>
