@@ -22,6 +22,7 @@ Route::controller('/article', 'ArticleController');
 Route::controller('/admin', 'AdminController');
 Route::controller('/label', 'LabelController');
 Route::controller('/comment', 'CommentController');
+Route::controller('/sub', 'SubsiteController');
 Route::controller('/', 'BlogController');
 
 /* View Composer */

@@ -96,13 +96,12 @@ function countVisit(article_id){
 	$.ajax({url:'/article/visit?article_id='+article_id, type:'get', async:false});
 }
 function add_event(){
-	window.addEventListener('scroll', window_onscroll, false);
+	$(window).bind("scroll", function(){window_onscroll()});
 }
 function render(){
-	var editor = UE.getEditor('comment-content',{
+	var editor = UE.getEditor('comment-content', {
 		initialFrameWidth:'100%',
 		initialFrameHeight: 500,
-		initialStyle:'p{line-height:1em; font-family: 微软雅黑; font-size:20px;}',
 		toolbars: [
                    [
                        'source',
@@ -121,9 +120,10 @@ function render(){
                        'date', //日期
                        '|', //分隔线
                        'emotion', //表情
-                       'spechars', //特殊字符
+                       'spechars' //特殊字符
                    ]
                ],
+        initialStyle:'p{line-height:1em; font-family: 微软雅黑; font-size:20px;}'
 	});
 	var a = document.getElementById("render");
 	a.innerHTML="Cancel Render";
