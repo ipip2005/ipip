@@ -44,7 +44,7 @@
 					echo'btn-info'; 
 				$a = 1-$a;
 				?>">
-				{{$label->label_name.'('.count($label->articles()->get()).')'}}
+				{{$label->label_name.'('.$label->article_count.')'}}
 			</a>
 		@endforeach
 		<a tabindex="0" class="btn btn-lg btn-danger bs-docs-popover col-xs-2 margin-5" data-toggle="popover" 
