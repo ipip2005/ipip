@@ -22,7 +22,7 @@ Route::controller('/article', 'ArticleController');
 Route::controller('/admin', 'AdminController');
 Route::controller('/label', 'LabelController');
 Route::controller('/comment', 'CommentController');
-Route::group(array('domain'=>'tools.ipipblog.net'), function(){
+Route::group(array('domain'=>'tools.ipipblog'), function(){
 	Route::controller('/', 'ToolController');
 });
 Route::controller('/', 'BlogController');
@@ -37,4 +37,13 @@ View::composer('sidebar/recentArticles', function ($view) {
 View::composer('sidebar/highRateArticles', function($view) {
 	$high = Redis::zrevrange('score', 0, 9, 'WITHSCORES');
 	$view->high = $high;
+});
+View::composer('labelWall', function($view){
+	$labels = Label::where('article_count', '>', '0')->get();
+	if ($labels->count() == 0)
+		$ave = 0;
+	else 
+		$ave = Label::sum('article_count')/$labels->count();
+	$view->labels = $labels;
+	$view->ave = $ave;
 });

@@ -29,9 +29,13 @@ class BlogController extends BaseController {
 	}
 	public function getArticleAtLabel(){
 		$label = Label::find(Input::get('label_id'));
-		$articles = $label->articles()->paginate( 20 );
+		$articles = $label->articles();
+		if (Auth::check()) 
+			$articles = $articles->paginate(20);
+		else
+			$articles = $articles->where('hidden', '=', 'false')->paginate(20); 
 		$articles->getFactory ()->setViewName ( 'pagination::slider-3' );
-		$this->layout->title = 'ipip\'s Blog, a level 1 light mage';
+		$this->layout->title = $label->label_name;
 		$this->layout->main = View::make ( 'home' )->nest ( 'content', 'index', compact ( 'articles') );
 	}
 	/**

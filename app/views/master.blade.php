@@ -47,7 +47,7 @@
 					</a>
 				</li>
 				<li class="shouldhideonscroll hidden-sm hidden-xs">
-					<a href="javascript:void(0)" id="ele9" class="tigger" target="_blank">
+					<a href="javascript:activeContact()" target="_blank">
 						<i class="icon-user icon-2x myicon"></i>
 						Contact-Me
 					</a>
@@ -59,7 +59,7 @@
 					</a>
 				</li>
 				<li class="active">
-					<a href="http://ipipblog.net" target="_top">
+					<a href="/" target="_top">
 						<i class="icon-home icon-2x myicon"></i>
 						Home
 					</a>
@@ -106,27 +106,23 @@
 
 </div>
 {{ HTML::script('./js/custom.js') }}
-{{ HTML::script('./js/popuplayer.js') }}
-<div class="popupLayer" id="popup-layer">
-	<div id="blk9" class="blk" style="opacity: 1;">
-		<div class="head"><div class="head-right"></div></div>
-		<div class="main">
-			<div class="title">
-				<h2>Leave a easy MESSAGE here</h2>
-				<a href="javascript:void(0)" id="close9" class="closeBtn">X</a>
+<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
+	id="contact-modal">
+	<div class="modal-dialog text-center">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2>Leave an easy MESSAGE to Me</h2>
 			</div>
-			{{ Form::open(array('url'=>'comment/message')) }}
+			<div class="modal-body">
+				{{ Form::open(array('url'=>'comment/message')) }}
         		<fieldset class="fieldset">
-                	{{ Form::textarea('message',Input::old('message'),['rows'=>5, 'cols'=>75]) }}
+                	{{ Form::textarea('message',Input::old('message'),['rows'=>6, 'cols'=>75]) }}
             		{{ Form::submit('send',['class'=>'btn btn-primary']) }}
         		</fieldset>
-        	{{ Form::close() }}
+        		{{ Form::close() }}
+			</div>
 		</div>
-    	<div class="foot"><div class="foot-right"></div></div>
 	</div>
 </div>
-<script>
-    	$(document).ready(contactboard());
-</script>
 </body>
 </html>

@@ -7,6 +7,7 @@ class ArticleController extends BaseController
     public function getShow()
     {
     	$article = Article::findOrFail(Input::get('aid'));
+    	if ($article->hidden && !Auth::check()) return Redirect::to('/');
         $comments = $article->comments()->get();
         $mylabels = $article->labels()->get();
         $labels = Label::all();
@@ -69,6 +70,8 @@ class ArticleController extends BaseController
 			$article->labels()->detach($label->id);
 			if (Input::get($label->id) =='on')
 				$article->labels()->attach($label->id);
+			$label->article_count = $label->articles()->count();
+			$label->save();
 		}
 		return Redirect::back();
 	}
