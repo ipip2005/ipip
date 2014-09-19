@@ -69,6 +69,14 @@ class BlogController extends BaseController {
 		Auth::Logout();
 		return Redirect::to('/');
 	}
+	public function getSearch(){
+		$search = Input::get('search');
+		$articles = Article::whereRaw('match(title, content) against(? in boolean mode)', [$search])
+			->where('hidden', '=', 'false')->orderBy ( 'id', 'desc' )->paginate(20); 
+		$articles->getFactory ()->setViewName ( 'pagination::slider-3' );
+		$this->layout->title = "[$search] in ipip";
+		$this->layout->main = View::make('home')->nest ( 'content', 'index', compact ( 'articles') );
+	}
 	public function missingMethod($parameters = array()){
 		return Redirect::to('/');
 	}

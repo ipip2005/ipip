@@ -33,12 +33,7 @@
 		
 		<div id="navbar" class="link">
 			<ul class="nav">
-				<li class="active">
-					<a href="http://ipipblog.net" target="_top">
-						<i class="icon-home icon-2x myicon"></i>
-						Home
-					</a>
-				</li>
+				
 				<li class="shouldhideonscroll hidden-xs">
 					<a href="https://github.com/ipip2005" target="_blank">
 						<i class="icon-github icon-2x myicon"></i>
@@ -61,6 +56,12 @@
 					<a href="javascript:bookmarksite('ipip\'s blog','http://ipipblog')">
 						<i class="icon-star-empty icon-2x myicon"></i>
 						Add-as-Favorite
+					</a>
+				</li>
+				<li class="active">
+					<a href="http://ipipblog.net" target="_top">
+						<i class="icon-home icon-2x myicon"></i>
+						Home
 					</a>
 				</li>
 				@if(Auth::check())
