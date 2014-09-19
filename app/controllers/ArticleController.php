@@ -35,8 +35,16 @@ class ArticleController extends BaseController
     	if (!Auth::check())return Redirect::back();
     	$article = Article::findOrFail(Input::get('aid'));
         $article->delete();
+        $this->refreshLabel();
         Redis::zrem('score', Input::get('aid'));
         return Redirect::to('/admin/dash-board')->with('success', 'Article is deleted!');
+    }
+    public function refreshLabel(){
+    	$labels = Label::all();
+    	foreach($labels as $label){
+    		$label->article_count = $label->articles()->count();
+    		$label->save();
+    	}
     }
 	public function postEdit()
 	{
