@@ -88,7 +88,11 @@ function on_load(){
     $('.article-content img').mouseleave(function(){$(this).fadeTo(100, 0.8)});
     $('.article-content img').click(function(){
     	var src = $(this).attr('src');
+    	$('#pic-modal .modal-dialog').css("max-width", "90%");
     	$('#pic-modal .modal-dialog').html("<img src='"+src+"' style='max-width:100%; height:auto'/>");
+    	$('#pic-modal .modal-dialog img').click(function(){
+    		$('#pic-modal').modal('hide');
+    	})
     	$('#pic-modal').modal('show');
     });
 }

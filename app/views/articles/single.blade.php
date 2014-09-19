@@ -11,7 +11,7 @@ SyntaxHighlighter.all() //执行代码高亮
   -- it should be autofit-width -->
 <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"
 	id="pic-modal">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body">
 			</div>
