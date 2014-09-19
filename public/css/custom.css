@@ -329,3 +329,6 @@ p,a{
 	width:600px;
 	height:300px;	
 }
+.not-break{
+	white-space:nowrap
+}

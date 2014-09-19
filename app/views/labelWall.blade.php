@@ -10,7 +10,7 @@
 		@foreach($labels as $label) <a
 			href="/article-at-label?label_id=<?php echo $label->id?>"
 			class="bigger text-center btn-lg btn-square z0 white-text
-			col-xs-<?php echo 2+($label->article_count>=$ave)?>">
+			col-xs-<?php echo 2+($label->article_count>=$ave)?> not-break">
 			{{$label->label_name.'('.$label->article_count.')';}} </a>
 		<script>
 		    function randomColor(){
