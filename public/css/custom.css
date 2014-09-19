@@ -39,6 +39,7 @@ a:hover.bigger{
 	text-decoration:none;
 	transform:scale(1.3);
 	transition-duration:0.5s;
+	color:#eee;
 	z-index:2;
 }
 .blog-title a{
