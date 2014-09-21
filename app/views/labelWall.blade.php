@@ -12,7 +12,7 @@
 			href="/article-at-label?label_id=<?php echo $label->id?>"
 			class="bigger text-center btn-lg btn-square z0 white-text
 			col-xs-<?php if ($line_sum==10 || $line_sum==9) {echo 12-$line_sum;$line_sum=0;} else
-				if ($line_sum==8)echo 2;else{ 
+				if ($line_sum==8){echo 2;$line_sum=$line_sum+2;}else{ 
 				$num=2+($label->article_count>=$ave);$line_sum=$line_sum+$num;echo $num;}?> not-break">
 			<b>{{$label->label_name.'('.$label->article_count.')';}}</b> </a>
 		<script>
