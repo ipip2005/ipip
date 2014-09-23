@@ -245,6 +245,9 @@ a:hover .fan-img{
 .article-title a:hover{
 	text-decoration:none;
 }
+.fb-articles a p{
+	display:inline;
+}
 .align-right{ 
 	text-align:right;
 }
@@ -280,6 +283,9 @@ a:hover .fan-img{
 }
 .padding-top-30{
 	padding-top:30px;
+}
+.padding-0{
+	padding:0px;
 }
 .padding-2{
 	padding:2px;

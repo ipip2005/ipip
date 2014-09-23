@@ -8,11 +8,18 @@ class ArticleController extends BaseController
     {
     	$article = Article::findOrFail(Input::get('aid'));
     	if ($article->hidden && !Auth::check()) return Redirect::to('/');
+    	if (!Auth::check()){
+    		$b_article=Article::where('id', '<', $article->id)->where('hidden','=','false')->orderBy('id','desc')->first();
+    		$f_article=Article::where('id', '>', $article->id)->where('hidden','=','false')->first();
+    	} else{
+    		$b_article=Article::where('id', '<', $article->id)->orderBy('id','desc')->first();
+    		$f_article=Article::where('id', '>', $article->id)->first();
+    	}
         $comments = $article->comments()->get();
         $mylabels = $article->labels()->get();
         $labels = Label::all();
         $this->layout->title = strip_tags($article->title);
-        $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'mylabels', 'labels'));
+        $this->layout->main = View::make('home')->nest('content', 'articles.single', compact('article', 'comments', 'mylabels', 'labels','b_article','f_article'));
     }
 
     public function getEdit()

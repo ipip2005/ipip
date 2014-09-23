@@ -130,6 +130,30 @@ SyntaxHighlighter.all() //执行代码高亮
 				<div id='content'>{{$article->content}}</div>
 			</div>
 		</div>
+		<div class="row fb-articles soft-text">
+			<div>
+				@if(isset($b_article))
+				<a href="/article/show?aid=<?php echo $b_article->id?>" class="inline">
+					<b class="col-xs-1 padding-2">Last:</b>
+					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$b_article->title}}</b>
+				</a>
+				@else
+				<p class="col-xs-6">Already oldest</p>
+				{{$b_article}}
+				@endif
+			</div>
+			<div>
+				@if(isset($f_article))
+				<a href="/article/show?aid=<?php echo $f_article->id?>" class="inline">
+					<b class="col-xs-1 padding-2">Next:</b>
+					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$f_article->title}}</b>
+				</a>
+				@else
+				<p class="col-xs-6">Already newest</p>
+				@endif
+				
+			</div>
+		</div>
 		<div class="row">
 			<div class="col-xs-12 bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a></div>
 			<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","qzone","tsina","weixin","renren","tieba","douban","t163","youdao","ty","fbook","twi","copy","print"],"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["tsina","renren","weixin","sqq"],"viewText":"分享到：","viewSize":"16"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
