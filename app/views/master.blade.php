@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="baidu-site-verification" content="khsljLdhkV" /> 
+    <meta name="baidu_union_verify" content="0b542825c3c4160744bfb71de0aec40b">
     @section('title')
         <title>{{{$title}}}</title> 
     @show  
