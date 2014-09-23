@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width">
     <meta name="baidu-site-verification" content="khsljLdhkV" /> 
     <meta name="baidu_union_verify" content="0b542825c3c4160744bfb71de0aec40b">
+    <meta name="keywords" content="ipip">
+    <meta name="keywords" content="ipip2005">
+    <meta name="keywords" content="ipip's blog">
+    <meta name="keywords" content="个人博客">
+    <meta name="keywords" content="技术交流">
+    <meta name="description" content="ipip的个人博客，记录生活和工作的点点滴滴，欢迎来交流、吐槽，或者听歌">
     @section('title')
         <title>{{{$title}}}</title> 
     @show  
