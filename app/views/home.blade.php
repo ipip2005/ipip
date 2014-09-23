@@ -5,7 +5,7 @@
 		</button>
 	</div>
 </div>
-<div class="col-xs-12 col-md-9 home-wrap">
+<div class="col-xs-12 col-md-8 home-wrap">
 	<div class="row">
 		{{$content}}
 	</div>
@@ -13,7 +13,7 @@
 		@include('labelWall')
 	</div>
 </div>
-<div class="col-xs-12 col-md-2 col-md-offset-0">
+<div class="col-xs-12 col-md-3">
 	<div class="row">
 		<aside class="sidebar col-xs-12">
 		@include('sidebar/recentArticles')

@@ -83,7 +83,7 @@
 	<footer>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-10 col-xs-offset-1">
 					<div class="footer-text">
 						<p class="text-center">
 							对博客或者博文有任何的疑惑，你可以发送邮件给
@@ -98,6 +98,11 @@
 						</div>
 						
 					</div>
+				</div>
+				<div class="col-xs-1">
+					<a class="footer-image" href="http://ipipblog.net">
+						<img src="/i/qrcode.png"/>
+					</a>
 				</div>
 			</div>
 		</div>

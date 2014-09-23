@@ -42,6 +42,15 @@ a:hover.bigger{
 	color:#eee;
 	z-index:2;
 }
+.footer-image img{
+	padding:20px;
+	height:110px;
+}
+a.footer-image:hover img{
+	transform:scale(3);
+	transition-duration:0.8s;
+	transform-origin:100% 100%;
+}
 .blog-title a{
 	font-weight:700;
 	color:#414b5b;
@@ -129,7 +138,9 @@ footer a{
 .sidebar-item label{
 	font-size:10px;
 }
-
+.sidebar a:hover{
+	text-decoration:none;
+}
 div#top-bar-box{
 	display:inline-block;
 	hegiht:106px;
@@ -194,7 +205,7 @@ a:hover .fan-img{
 	margin:0 auto 50px;
 }
 .home-wrap{
-	min-width:700px;
+	min-width:651px;
 }
 .article-wrap{
 	padding:17px;

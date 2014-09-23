@@ -1,0 +1,91 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This file contains the mappings of IP addresses to host names. Each
+# entry should be kept on an individual line. The IP address should
+# be placed in the first column followed by the corresponding host name.
+# The IP address and the host name should be separated by at least one
+# space.
+#
+# Additionally, comments (such as these) may be inserted on individual
+# lines or following the machine name denoted by a '#' symbol.
+# 
+# For example:
+#
+#      102.54.94.97     rhino.acme.com          # source server
+#       38.25.63.10     x.acme.com              # x client host
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::10			localhost
+
+#127.0.0.1       xampp.local
+#127.0.0.1       demo.local
+#127.0.0.1       bbs_new.local
+#127.0.0.1       back.local
+#127.0.0.1       api.local
+#127.0.0.1       yaf.local
+#127.0.0.1       yii.local
+#127.0.0.1       larvel.local
+#127.0.0.1       yiban.local
+#127.0.0.1		phpredisadmin
+#127.0.0.1 		tools.ipipblog
+127.0.0.1		ipipblog
+203.116.165.138 google.com
+203.116.165.138 https://code.google.com
+203.116.165.138 translate.google.com
+
+#10.21.3.36       serv.yiban.cn 
+#221.130.201.102  serv.mainclient.com 
+#10.21.3.89 serv.mainclient.com
+
+#10.21.3.85    www.yiban.cn
+
+
+#10.21.3.34 www.yiban.cn
+#10.21.3.34 s1.yiban.cn
+#10.21.3.34 s2.yiban.cn
+#10.21.3.34 s3.yiban.cn
+#10.21.3.34 s4.yiban.cn
+#10.21.3.34 s5.yiban.cn
+#10.21.3.34 s6.yiban.cn
+
+#10.21.4.10    www.yiban.cn
+
+#10.21.4.10 s1.yiban.cn
+#10.21.4.10 s2.yiban.cn
+#10.21.4.10 s3.yiban.cn
+#10.21.4.10 s4.yiban.cn
+#10.21.4.10 s5.yiban.cn
+#10.21.4.10 s6.yiban.cn
+
+#10.21.168.155 venus.yiban.cn
+
+#10.21.3.30      test.yiban.cn
+
+#10.21.118.243  serv.yiban.cn
+
+#221.130.201.102   serv.bbscore.com
+
+#221.130.201.102 api4c.yiban.cn
+
+#221.130.201.102 dev.yiban.cn
+
+#10.21.118.243  new.yibandev.com
+
+#10.21.118.243  new.yibanback.com
+
+#10.21.3.59 admin.yiban.cn
+
+#10.21.118.243  new.xinhua.com
+
+#221.130.201.102  new.bbscore.com
+
+#221.130.201.102  102.phpmyadmin.com
+
+#112.65.235.14  newsadmin.yiban.cn
+
+#121.101.223.177 www.phpchina.com
+
+#64.233.166.190 dl-ssl.google.com
