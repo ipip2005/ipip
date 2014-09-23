@@ -134,21 +134,21 @@ SyntaxHighlighter.all() //执行代码高亮
 			<div>
 				<b class="col-xs-1 padding-2">Last:</b>
 				@if(isset($b_article))
-				<a href="/article/show?aid=<?php echo $b_article->id?>" class="inline">
+				<a href="/article/show?aid=<?php echo $b_article->id?>" class="inline padding-0">
 					
 					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$b_article->title}}</b>
 				</a>
 				@else
-				<p class="col-xs-5">Already oldest</p>
+				<p class="col-xs-5 padding-0">Already oldest</p>
 				{{$b_article}}
 				@endif
 			</div>
 			<div>
 				<b class="col-xs-1 padding-2">Next:</b>
 				@if(isset($f_article))
-				<a href="/article/show?aid=<?php echo $f_article->id?>" class="inline">
+				<a href="/article/show?aid=<?php echo $f_article->id?>" class="inline padding-0">
 					
-					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$f_article->title}}</b>
+					<b class="col-xs-5 text-center padding-0">&nbsp;&nbsp;&nbsp;&nbsp;{{$f_article->title}}</b>
 				</a>
 				@else
 				<p class="col-xs-5">Already newest</p>
