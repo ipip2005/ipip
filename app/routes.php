@@ -25,6 +25,9 @@ Route::controller('/comment', 'CommentController');
 Route::group(array('domain'=>'tools.ipipblog'), function(){
 	Route::controller('/', 'ToolController');
 });
+Route::group(array('domain'=>'tools.ipipblog.net'), function(){
+	Route::controller('/', 'ToolController');
+});
 Route::controller('/', 'BlogController');
 
 /* View Composer */

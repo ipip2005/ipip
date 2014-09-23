@@ -30,7 +30,7 @@
 #127.0.0.1       larvel.local
 #127.0.0.1       yiban.local
 #127.0.0.1		phpredisadmin
-#127.0.0.1 		tools.ipipblog
+127.0.0.1 		tools.ipipblog
 127.0.0.1		ipipblog
 203.116.165.138 google.com
 203.116.165.138 https://code.google.com
