@@ -132,8 +132,8 @@ SyntaxHighlighter.all() //执行代码高亮
 		</div>
 		<div class="row fb-articles soft-text">
 			<div>
-				@if(isset($b_article))
 				<b class="col-xs-1 padding-2">Last:</b>
+				@if(isset($b_article))
 				<a href="/article/show?aid=<?php echo $b_article->id?>" class="inline">
 					
 					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$b_article->title}}</b>
@@ -144,8 +144,8 @@ SyntaxHighlighter.all() //执行代码高亮
 				@endif
 			</div>
 			<div>
-				@if(isset($f_article))
 				<b class="col-xs-1 padding-2">Next:</b>
+				@if(isset($f_article))
 				<a href="/article/show?aid=<?php echo $f_article->id?>" class="inline">
 					
 					<b class="col-xs-5 text-center">&nbsp;&nbsp;&nbsp;&nbsp;{{$f_article->title}}</b>
