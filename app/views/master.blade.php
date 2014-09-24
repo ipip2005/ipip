@@ -108,7 +108,7 @@
 				</div>
 				<div class="col-xs-1">
 					<a class="footer-image" href="http://ipipblog.net">
-						<img src="/i/qrcode.png"/>
+						<img src="/i/qrcode.png" alt="qrcode" title="qrcode"/>
 					</a>
 				</div>
 			</div>
