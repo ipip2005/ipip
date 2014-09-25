@@ -109,6 +109,11 @@ class BlogController extends BaseController {
 			
 		}
 	}
+	public function getDeadLink(){
+		$file = asset('/deadlink.txt');
+		$content = file_get_contents($file);
+		return $content;
+	}
 	public function missingMethod($parameters = array()){
 		return Redirect::to('/');
 	}
