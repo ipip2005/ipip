@@ -12,7 +12,7 @@
 <div class="col-xs-12 divider img-rounded">
 </div>
 @foreach($articles as $article)
-	<article class="article col-xs-12 padding-0">
+	<article class="article col-xs-12">
 		<header class="article-header row bg-success">
 			<h2 class="article-title col-xs-12">
 				<a href="/article/show?aid=<?php echo $article->id?>">
