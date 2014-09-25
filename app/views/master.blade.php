@@ -21,7 +21,7 @@
 	{{ HTML::script('./js/bootstrap.min.js') }}
 	
 </head>
-<body onload="on_load()">
+<body onload="on_load()" class="bg-white">
 <div class="wrap">
 	
 	<header id="main-header" class="main-header">
