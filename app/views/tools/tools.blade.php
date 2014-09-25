@@ -5,14 +5,14 @@
 
 	<div class="row padding-5">
 		<div class="col-xs-12">
-			<a href="/ahp">
-				<img alt="AHP-online" src="/i/AHP.png" class="admin-img img-rounded fan-img">
+			<a href="http://ipipblog.net/article/show?aid=16">
+				<img alt="AHP-online-层次分析法" src="/i/AHP.png" class="admin-img img-rounded fan-img">
 			</a>
 		</div>
 	</div>
 	<div class="row">
 		<a href="/ahp">
-			<h3 class="text-center soft-text">online-AHP（层次分析法）</h3>
+			<h3 class="text-center soft-text">online-AHP（暂无demo）</h3>
 		</a>
 	</div>
 </div>
@@ -38,13 +38,13 @@
 
 	<div class="row padding-5">
 		<div class="col-xs-12">
-			<a href="http://www.layoutit.com/build?r=63144805" target="_blank">
-				<img alt="sumopaint-onlinePS" src="/i/layoutit.png" class="admin-img img-rounded fan-img" >
+			<a href="http://www.layoutit.com/build" target="_blank">
+				<img alt="layoutit-tools_for_bootstrap" src="/i/layoutit.png" class="admin-img img-rounded fan-img" >
 			</a>
 		</div>
 	</div>
 	<div class="row">
-		<a href="http://www.layoutit.com/build?r=63144805" target="_blank">
+		<a href="http://www.layoutit.com/build" target="_blank">
 			<h3 class="text-center soft-text">layoutit</h3>
 		</a>
 	</div>
