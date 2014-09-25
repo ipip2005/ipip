@@ -1,7 +1,7 @@
 <div class="col-xs-7">
 {{$articles->links()}}
 </div>
-<div class="col-xs-5 padding-top-30">
+<div class="col-xs-5 padding-top-30 search">
 {{ Form::open(['url' => 'search','method'=>'get']) }}
 	<div class="row">
 		{{ Form::text('search',Input::old('search'),['placeholder'=>'Search in blog...', 'class'=>'img-rounded col-xs-9']) }}
@@ -9,9 +9,11 @@
 	</div>
 {{ Form::close() }}
 </div>
+<div class="col-xs-12 divider img-rounded">
+</div>
 @foreach($articles as $article)
-	<article class="article col-xs-12">
-		<header class="article-header row img-rounded bg-success">
+	<article class="article col-xs-12 padding-0">
+		<header class="article-header row bg-success">
 			<h2 class="article-title col-xs-12">
 				<a href="/article/show?aid=<?php echo $article->id?>">
 					{{$article->title}}
@@ -53,9 +55,9 @@
 	$(document).ready(function(){
 		$('.article-header').mouseenter(function(){
 			$(this).css({
-				"box-shadow":"5px 5px 5px rgba(0,0,0,0.25)",
+				"box-shadow":"6px 6px 6px rgba(0,0,0,0.25)",
 			});
-			$(this).removeClass("bg-success");
+			$(this).removeClass('bg-success');
 			$(this).addClass("bg-near-success");
 		});
 		$('.article-header').mouseleave(function(){
@@ -63,7 +65,7 @@
 				"box-shadow":"1px 1px 1px rgba(0,0,0,0.25)",
 			});
 			$(this).removeClass("bg-near-success");
-			$(this).addClass("bg-success");
+			$(this).addClass('bg-success');
 		});
 	});
 </script>
