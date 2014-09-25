@@ -81,6 +81,34 @@ class BlogController extends BaseController {
 		$this->layout->title = "[$search] in ipip";
 		$this->layout->main = View::make('home')->nest ( 'content', 'index', compact ( 'articles') );
 	}
+	public function getRss(){
+		$articles = Article::where('hidden', '=', 'false');
+		$dom = new DOMDocument();
+		
+		$rss = $dom->createElement('rss');
+		$rss->setAttribute('version', '1.0');
+		$dom->appendChild($rss);
+		
+		$channel = $dom->createElement('channel');
+		$rss->appendChild($channel);
+		
+		
+		$title = $dom->createElement('title','ipip\'s blog,ipip 的个人博客');
+		$link = $dom->createElement('link','http://ipipblog.net/');
+		$description = $dom->createElement('description','This channel is an blog rss channel for ipipblog.net');
+		$language = $dom->createElement('language','en-us');
+		$channel->appendChild($title);
+		$channel->appendChild($link);
+		$channel->appendChild($description);
+		$channel->appendChild($language);
+		foreach ($articles as $article){
+			$item = $dom->createElement('item');
+			$channel->appendChild($item);
+			$a_title = $dom->createElement('title',$article->title);
+			$a_link = $dom->createElement('link','http://ipipblog.net/article/show?aid='.$article->id);
+			
+		}
+	}
 	public function missingMethod($parameters = array()){
 		return Redirect::to('/');
 	}
