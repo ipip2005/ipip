@@ -43,7 +43,7 @@ View::composer('sidebar/highRateArticles', function($view) {
 });
 View::composer('sidebar/timeArticles', function($view){
     if (Auth::check()){
-        $times = Article::all()->get();
+        $times = Article::get(array('created_at'));
     } else{
         $times = Article::where('hidden','=','false')->get(array('created_at'));
     }
