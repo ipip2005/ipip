@@ -84,7 +84,12 @@ class BlogController extends BaseController {
 	public function getTime(){
 	    $time = Input::get('tid');
 	    $timeu = $time.chr(126);
-	    $articles = Article::where('created_at','>',$time)->where('created_at','<',$timeu)->paginate(20);
+	    if (Auth::check())
+	       $articles = Article::where('created_at','>',$time)->where('created_at','<',$timeu)->
+	           orderBy('id','desc')->paginate(20);
+	    else 
+	       $articles = Article::where('hidden','=','false')->where('created_at','>',$time)->
+	           where('created_at','<',$timeu)->orderBy('id','desc')->paginate(20);
 	    $articles->getFactory ()->setViewName ( 'pagination::slider-3' );
 	    $this->layout->title = 'ipip\'s blog at $time';
 	    $this->layout->main = View::make('home')->nest('content', 'index', compact('articles'));
