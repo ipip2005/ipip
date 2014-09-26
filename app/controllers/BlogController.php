@@ -121,7 +121,7 @@ class BlogController extends BaseController {
 			$a_title = $dom->createElement('title',$article->title);
 			$a_link = $dom->createElement('link','http://ipipblog.net/article/show?aid='.$article->id);
 		}
-		return $rss;
+		return Response::setContent($rss);
 	}
 	public function getDeadLink(){
 		$file = asset('/deadlink.txt');
