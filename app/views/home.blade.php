@@ -24,9 +24,5 @@
 		@include('sidebar/highRateArticles')
 		</aside>
 	</div>
-	<div class="row">
-		<aside class="sidebar col-xs-12">
-		@include('sidebar/timeArticles')
-		</aside>
-	</div>
+	
 </div>
