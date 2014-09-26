@@ -23,11 +23,11 @@ function window_onscroll(){
 		header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = header_height + "px";
-		$('.shouldhideonscroll').hide(1000);
+		$('.shouldhideonscroll').fadeOut(1000);
 	} else{
 		header.style.position = "relative";
 		header.style.top = "0px";
-		$('.shouldhideonscroll').show(500);
+		$('.shouldhideonscroll').fadeIn(500);
 		main.style.paddingTop = "0px";
 	}
 	var hiddenbox = $('#hiddenbox');
@@ -174,4 +174,12 @@ function cancelSend(){
 function toggleHidingButton(article_id){
 	var text = $.ajax({'url':'/article/toggle?article_id='+article_id,type:'get',async:false});
 	$('button#hiding').html(text.responseText);
+}
+function toggleyear(year){
+	if ($('#year'+year+' a').hasClass('showed')){
+		$('#year'+year+' a').slideUp(500);
+	} else {
+		$('#year'+year+' a').slideDown(500);
+	}
+	$('#year'+year+' a').toggleClass('showed');
 }

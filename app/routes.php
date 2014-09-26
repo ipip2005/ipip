@@ -41,6 +41,25 @@ View::composer('sidebar/highRateArticles', function($view) {
 	$high = Redis::zrevrange('score', 0, 9, 'WITHSCORES');
 	$view->high = $high;
 });
+View::composer('sidebar/timeArticles', function($view){
+    if (Auth::check()){
+        $times = Article::all()->get();
+    } else{
+        $times = Article::where('hidden','=','false')->get(array('created_at'));
+    }
+    $time_point = array();
+    foreach ($times as $single){
+        $time = $single->created_at;
+        $key = substr($time,0,4);//substr($time,0,4);
+        $subkey = substr($time,5,2);
+        if (array_key_exists($key, $time_point)){
+            $time_point[$key][$subkey]='1';
+        } else{
+            $time_point[$key] = array($subkey=>'1');
+        }
+    }
+    $view->times = $time_point;
+});
 View::composer('labelWall', function($view){
 	$labels = Label::where('article_count', '>', '0')->get();
 	if ($labels->count() == 0)

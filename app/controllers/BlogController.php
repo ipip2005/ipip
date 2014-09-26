@@ -81,6 +81,15 @@ class BlogController extends BaseController {
 		$this->layout->title = "[$search] in ipip";
 		$this->layout->main = View::make('home')->nest ( 'content', 'index', compact ( 'articles') );
 	}
+	public function getTime(){
+	    $time = Input::get('tid');
+	    $timeu = $time.chr(126);
+	    $articles = Article::where('created_at','>',$time)->where('created_at','<',$timeu)->paginate(20);
+	    $articles->getFactory ()->setViewName ( 'pagination::slider-3' );
+	    $this->layout->title = 'ipip\'s blog at $time';
+	    $this->layout->main = View::make('home')->nest('content', 'index', compact('articles'));
+	    
+	}
 	public function getRss(){
 		$articles = Article::where('hidden', '=', 'false');
 		$dom = new DOMDocument();
@@ -106,8 +115,8 @@ class BlogController extends BaseController {
 			$channel->appendChild($item);
 			$a_title = $dom->createElement('title',$article->title);
 			$a_link = $dom->createElement('link','http://ipipblog.net/article/show?aid='.$article->id);
-			
 		}
+		return $rss;
 	}
 	public function getDeadLink(){
 		$file = asset('/deadlink.txt');

@@ -12,7 +12,7 @@
 	<div>
 		<div class="row sidebar-item">
 			<div class="col-xs-12">
-				<label class="bg-primary img-rounded padding-5">
+				<label class="bg-primary padding-5">
 				<i class="icon-group icon-2x"></i> {{$count}}
 				</label>
 			</div>
