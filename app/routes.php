@@ -58,6 +58,8 @@ View::composer('sidebar/timeArticles', function($view){
             $time_point[$key] = array($subkey=>'1');
         }
     }
+    krsort($time_point);
+    foreach($time_point as $key=>$arr) krsort($time_point[$key]);
     $view->times = $time_point;
 });
 View::composer('labelWall', function($view){
