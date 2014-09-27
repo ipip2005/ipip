@@ -95,6 +95,15 @@ class BlogController extends BaseController {
 	    $this->layout->main = View::make('home')->nest('content', 'index', compact('articles'));
 	    
 	}
+	public function dateFormat($date){
+	    $tmp = $date.'Z';
+	    $tmp[10]='T';
+	    $i=4;
+	    str_replace('-', ':', array($tmp), $i);
+	    $i=2;
+	    str_replace(':', '-', array($tmp), $i);
+	    return $tmp;
+	}
 	public function getFeed(){
 	    $articles = Article::where('hidden', '=', 'false')->orderBy('id','desc')->get();
 		$dom = new DOMDocument('1.0','utf-8');
@@ -103,15 +112,19 @@ class BlogController extends BaseController {
 		$dom->appendChild($feed);
 		$title = $dom->createElement('title','ipip\'s blog,ipip 的个人博客-叶寥亮');
 		$title->setAttribute('type', 'text');
-		$link = $dom->createElement('link','http://ipipblog.net/');
+		$link = $dom->createElement('link');
+		$link->setAttribute('rel', 'self');
+		$link->setAttribute('href', 'http://ipipblog.net/');
+		
 		$language = $dom->createElement('language','en-us');
 		$id = $dom->createElement('id','ipip2005');
 		$subtitle = $dom->createElement('subtitle','这是我业余时间用laravel框架搭建的一个分享我是生活、学习与工作的博客，并不一定每篇文章对你都是有趣的，但一定是和我零距离的事件');
 		$subtitle->setAttribute('type', 'text');
-		$updated = $dom->createElement('updated',$articles[0]->created_at);
+		$updated = $dom->createElement('updated',$this->dateFormat($articles[0]->created_at));
 	
 		$feed->appendChild($title);
 		$feed->appendChild($subtitle);
+		$feed->appendChild($id);
 		$feed->appendChild($link);
 		$feed->appendChild($language);
 		$feed->appendChild($updated);
@@ -140,9 +153,8 @@ class BlogController extends BaseController {
 	        $a_link2->setAttribute('href', 'http://ipipblog.net/article/show?aid='.$article->id);
 	        $content = $dom->createElement('content','<p>url:<a href="'.'http://ipipblog.net/article/show?aid='.$article->id.'" target="_blank">'.strip_tags($article->title).'</a></p>');
 	        $content->setAttribute('type', 'html');
-	          
-	        $published = $dom->createElement('published',$article->created_at);
-	        $updated = $dom->createElement('updated',$article->updated_at);
+	        $published = $dom->createElement('published',$this->dateFormat($article->created_at));
+	        $updated = $dom->createElement('updated',$this->dateFormat($article->updated_at));
 	        $entry->appendChild($a_id);
 	        $entry->appendChild($a_title);
 	        $entry->appendChild($published);
