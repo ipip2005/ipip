@@ -11,7 +11,7 @@
 			</div>
 			<div class="year" id="year<?php echo $year?>">
 			@foreach($timeset as $time=>$value)
-			<a href="/time?tid=<?php echo $year.'-'.$time?>" class="col-xs-7 col-xs-offset-4 bg-near-success padding-2 showed">
+			<a rel="nofollow" href="/time?tid=<?php echo $year.'-'.$time?>" class="col-xs-7 col-xs-offset-4 bg-near-success padding-2 showed">
 			     <b>{{intval($time).' 月'}}</b>
 			</a>
 			@endforeach
