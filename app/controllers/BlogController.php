@@ -113,11 +113,12 @@ class BlogController extends BaseController {
 		$title = $dom->createElement('title','ipip\'s blog,ipip 的个人博客-叶寥亮');
 		$title->setAttribute('type', 'text');
 		$link = $dom->createElement('link');
-		$link->setAttribute('rel', 'self');
 		$link->setAttribute('href', 'http://ipipblog.net/');
+		$link2 = $dom->createElement('link');
+		$link2->setAttribute('rel', 'self');
+		$link2->setAttribute('href', 'http://ipipblog.net/rss');
 		
-		$language = $dom->createElement('language','en-us');
-		$id = $dom->createElement('id','ipip2005');
+		$id = $dom->createElement('id','http://ipip2005.net/');
 		$subtitle = $dom->createElement('subtitle','这是我业余时间用laravel框架搭建的一个分享我是生活、学习与工作的博客，并不一定每篇文章对你都是有趣的，但一定是和我零距离的事件');
 		$subtitle->setAttribute('type', 'text');
 		$updated = $dom->createElement('updated',$this->dateFormat($articles[0]->created_at));
@@ -126,7 +127,7 @@ class BlogController extends BaseController {
 		$feed->appendChild($subtitle);
 		$feed->appendChild($id);
 		$feed->appendChild($link);
-		$feed->appendChild($language);
+		$feed->appendChild($link2);
 		$feed->appendChild($updated);
 		
 		$author = $dom->createElement('author');
