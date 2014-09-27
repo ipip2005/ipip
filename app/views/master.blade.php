@@ -60,9 +60,9 @@
 					</a>
 				</li>
 				<li class="shouldhideonscroll hidden-sm hidden-xs">
-					<a href="javascript:bookmarksite('ipip\'s blog','http://ipipblog')">
-						<i class="icon-star-empty icon-2x myicon"></i>
-						Add-as-Favorite
+					<a href="/feed">
+						<i class="icon-rss icon-2x myicon"></i>
+						Feed-RSS
 					</a>
 				</li>
 				<li class="active">
