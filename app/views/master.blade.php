@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="baidu-site-verification" content="khsljLdhkV" /> 
     <meta name="baidu_union_verify" content="0b542825c3c4160744bfb71de0aec40b">
+    <meta name="google-site-verification" content="iy69sGumMcvaUUjW3bnVvhzUoqNrXjdoiNJjKYB8vPo" />
     <meta name="keywords" content="ipip">
     <meta name="keywords" content="ipip2005">
     <meta name="keywords" content="ipip's blog">
