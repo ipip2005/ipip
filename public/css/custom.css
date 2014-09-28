@@ -1,7 +1,7 @@
 div.wrap{
 }
 .bg-white{
-	background-color:#f9f9f9;
+	background:#c1c1c1 url("/i/bg.jpg") repeat;
 }
 .bg-dack{
 	background: #6c7989;
