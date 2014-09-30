@@ -246,6 +246,10 @@ a:hover .fan-img{
 	box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
 	transition: background 1s;
 }
+.article-header .icon-2x{
+	position:absolute;
+	margin:-10px 0 0 -10px;
+}
 .article-comments{
 	background-color:#eee;
 }

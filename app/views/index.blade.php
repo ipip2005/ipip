@@ -14,6 +14,7 @@
 @foreach($articles as $article)
 	<article class="article col-xs-12">
 		<header class="article-header row bg-success">
+			<i class="icon-file soft-text icon-2x"></i>
 			<h2 class="article-title col-xs-12">
 				<a href="/article/show?aid=<?php echo $article->id?>">
 					{{$article->title}}
