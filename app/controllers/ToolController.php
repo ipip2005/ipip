@@ -13,4 +13,7 @@ class ToolController extends BaseController {
 		$this->layout->title = 'ipip tools-AHP-层次分析法';
 		$this->layout->main = View::make('tools/AHP');
 	}
+	public function missingMethod($parameters = array()){
+		return Redirect::to('/');
+	}
 }

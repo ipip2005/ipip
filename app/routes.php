@@ -28,6 +28,17 @@ Route::group(array('domain'=>'tools.ipipblog'), function(){
 Route::group(array('domain'=>'tools.ipipblog.net'), function(){
 	Route::controller('/', 'ToolController');
 });
+Route::group(array('domain'=>'demo.ipipblog'), function(){
+	Route::controller('/breakpoint','UploadController');
+	Route::controller('/', 'DemoController');
+	
+});
+Route::group(array('domain'=>'demo.ipipblog.net'), function(){
+	Route::controller('/breakpoint','UploadController');
+	Route::controller('/', 'DemoController');
+	
+});
+
 Route::controller('/', 'BlogController');
 
 /* View Composer */
