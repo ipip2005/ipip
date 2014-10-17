@@ -1,3 +1,22 @@
+BODY { 
+ SCROLLBAR-FACE-COLOR: #fcfcfc; 
+ SCROLLBAR-HIGHLIGHT-COLOR: #6c6c90; 
+ SCROLLBAR-SHADOW-COLOR: #fcfcfc; 
+ SCROLLBAR-3DLIGHT-COLOR: #fcfcfc; 
+ SCROLLBAR-ARROW-COLOR: #240024; 
+ SCROLLBAR-TRACK-COLOR: #fcfcfc; 
+ SCROLLBAR-DARKSHADOW-COLOR: #48486c; 
+ SCROLLBAR-BASE-COLOR: #fcfcfc 
+}
+  ::-webkit-scrollbar { width: 10px; }/* Track & scroll thickness */
+
+  ::-webkit-scrollbar-track { background-color:#aea; }/* Track color */
+
+  ::-webkit-scrollbar-thumb { background-color: #555;border-radius:5px;}/* Scroll color */
+
+  ::-webkit-scrollbar-thumb:hover { background-color: #333 }/* Scroll hover color */
+
+  ::-webkit-scrollbar-thumb:active { background-color: #333 }/* Scroll click & drag color */
 div.wrap{
 }
 .bg-white{
