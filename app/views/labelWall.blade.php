@@ -35,3 +35,12 @@
 	</div>
 </div>
 @endif
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- ad1 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1111817816732851"
+     data-ad-slot="3960458927"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
