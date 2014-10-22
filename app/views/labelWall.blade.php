@@ -48,14 +48,5 @@ if ($line_sum == 10 || $line_sum == 9) {
 <br>
 <div class="col-xs-12">
 	<div class="row margin-0 text-center">
-		<script async
-			src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- ad1 -->
-		<ins class="adsbygoogle"
-			style="display: inline-block; width: 651px; height: 80px"
-			data-ad-client="ca-pub-1111817816732851" data-ad-slot="3960458927"></ins>
-		<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 	</div>
 </div>
