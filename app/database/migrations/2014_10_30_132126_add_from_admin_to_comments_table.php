@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSearchToArticleTable extends Migration {
+class AddFromAdminToCommentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class AddSearchToArticleTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('articles', function (Blueprint $table) {
-			$table->dropIndex('search');
-			DB::statement('ALTER TABLE articles ADD FULLTEXT search(title, content) WITH PARSER mysqlcft');
+		Schema::table('comments', function(Blueprint $table)
+		{
+			$table->boolean('from_admin')->dafault(false);
 		});
 	}
 
@@ -25,7 +25,10 @@ class AddSearchToArticleTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::table('comments', function(Blueprint $table)
+		{
+			$table->dropColumn('from_admin ');
+		});
 	}
 
 }

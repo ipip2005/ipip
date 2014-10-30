@@ -50,20 +50,20 @@
 			</div>
 			<div class="comment-wrap btn-default row" tabIndex="-1">
 				<h4 class="col-xs-6">
-					<p class="btn-info img-rounded padding-5"><?php
+					<span class="btn-info img-rounded padding-5"><?php
 							if ($comment->commenter == '')
 								echo 'no_name';
 							else
 								echo $comment->commenter;
-							?><p>
+							?></span>
 				</h4>
 				<h4 class="col-xs-6">
-					<p class="btn-info img-rounded padding-5"><?php
+					<span class="btn-info img-rounded padding-5"><?php
 						if ($comment->email == '')
 							echo 'none';
 						else
 							echo $comment->email;
-						?></p>
+						?></span>
 				</h4>
 
 				<h3 class="col-xs-12">{{$comment->comment}}</h3>

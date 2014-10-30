@@ -178,26 +178,29 @@ SyntaxHighlighter.all() //执行代码高亮
 					onfocus="toggleHiddenComment({{$comment->id}})"
 					onblur="toggleHiddenComment({{$comment->id}})">
 					<h4 class="col-xs-6">
-						<p class="btn-info img-rounded padding-5">name:
+						@if($comment->from_admin)
+						<span class="btn-danger img-rounded padding-5">
+							ipip2005
+						</span>
+						@else
+						<span class="btn-info img-rounded padding-5">name:
 							<?php
 							if ($comment->commenter == '')
 								echo 'no_name_' . $comment->id;
 							else
 								echo $comment->commenter;
 							?>
-						
-						
-						
-						<p>
+						</span>
+						@endif
 					
 					</h4>
 					<h4 class="col-xs-6">
-						<p class="btn-info img-rounded padding-5">c-i:<?php
+						<span class="btn-info img-rounded padding-5">c-i:<?php
 						if ($comment->email == '')
 							echo 'none';
 						else
 							echo $comment->email;
-						?></p>
+						?></span>
 					</h4>
 
 					<h3 class="col-xs-12">{{$comment->comment}}</h3>

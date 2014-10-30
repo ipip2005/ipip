@@ -51,7 +51,7 @@
 				<li class="shouldhideonscroll hidden-xs">
 					<a href="http://blog.csdn.net/ipip2005" target="_blank">
 						<i class="icon-sign-blank icon-2x myicon"></i>
-						My-CSND
+						My-CSDN
 					</a>
 				</li>
 				<li class="shouldhideonscroll hidden-sm hidden-xs">

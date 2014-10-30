@@ -110,6 +110,7 @@ class ArticleController extends BaseController
 		$comment = new Comment($comment);
 		$comment->article_id = $article->id;
 		$comment->checked = false;
+		$comment->from_admin = Auth::check();
 		$comment->save();
 		$article->comment_count++;
 		$article->timestamps =false;

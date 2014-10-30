@@ -26,6 +26,7 @@ class CommentController extends BaseController
 		$comment = [
 			'comment' => Input::get('message'),
 		];
+		if (Auth::check()) $comment->from_admin = true;
 		$comment = new Comment($comment);
 		$comment->save();
 		return Redirect::back();
