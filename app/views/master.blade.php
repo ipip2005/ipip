@@ -15,11 +15,20 @@
 <meta name="keywords" content="技术交流">
 <meta name="description" content="ipip的个人博客，记录生活和工作的点点滴滴，欢迎来交流、吐槽，或者听歌">
 @section('title')
-<title>{{{$title}}}</title> @show {{ HTML::style('css/bootstrap.css') }}
-{{ HTML::style('css/custom.css') }} {{
-HTML::style('css/font-awesome.css') }}
-<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<title>{{{$title}}}</title> @show 
+<?php 
+/*
+{{ HTML::style('css/bootstrap.css') }}
+{{HTML::style('css/font-awesome.css') }}
 {{ HTML::script('./js/bootstrap.min.js') }}
+*/
+?> 
+<link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+{{ HTML::style('css/custom.css') }} 
+
+<link href="http://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </head>
 <body onload="on_load()" class="bg-white">
