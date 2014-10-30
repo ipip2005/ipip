@@ -192,22 +192,25 @@ SyntaxHighlighter.all() //执行代码高亮
 							?>
 						</span>
 						@endif
-					
+						<span class="soft-text comment-time">&nbsp at {{$comment->created_at}}</span>
 					</h4>
 					<h4 class="col-xs-6">
+						@if($comment->from_admin)
+						<span class="btn-danger img-rounded padding-5">
+							supersingerman@126.com
+						</span>
+						@else
 						<span class="btn-info img-rounded padding-5">c-i:<?php
 						if ($comment->email == '')
 							echo 'none';
 						else
 							echo $comment->email;
 						?></span>
+						@endif
 					</h4>
 
 					<h3 class="col-xs-12">{{$comment->comment}}</h3>
-					<div class="col-xs-12 text-right">
-						<p class="soft-text">{{$comment->created_at}}</p>
-					</div>
-					<div class="col-xs-12 right-text margin-5">
+					<div class="col-xs-12 text-right padding-0">
 						@if(Auth::check()) <a
 							href="/comment/delete?cid=<?php echo $comment->id?>"
 							class="btn btn-danger" id="hidden<?php echo $comment->id?>"
@@ -218,7 +221,7 @@ SyntaxHighlighter.all() //执行代码高亮
 							else
 								echo $comment->commenter;
 							?>')"
-							href="#leave-comment" class="btn btn-primary">reply</a>
+							href="#leave-comment" class="btn btn-primary"><i class="icon-reply"></i> reply</a>
 					</div>
 				</div>
 				<div class="row">
@@ -246,7 +249,7 @@ SyntaxHighlighter.all() //执行代码高亮
 					</div>
 					<div class="row">
 						{{Form::textarea('comment-content',Input::old('comment-content'),
-						['id'=>'comment-content', 'placeholder'=>' print anything you want! not empty', 'class'=>'btn-lg img-rounded col-xs-12
+						['id'=>'comment-content', 'placeholder'=>' type anything you want! not empty', 'class'=>'btn-lg img-rounded col-xs-12
 						comment-area left-text'])}}</div>
 					<div class="row">
 						<br> @if($errors->has()) @foreach ($errors->all() as $message)
@@ -258,8 +261,10 @@ SyntaxHighlighter.all() //执行代码高亮
 
 					<div class="row">
 						<div class="col-xs-6 text-center">
-							<a onclick="javascript:render()" class="btn btn-lg btn-info"
+							@if(Auth::check())
+							<a onclick="javascript:render();" class="btn btn-lg btn-info"
 								id="render">Render Editor</a>
+							@endif
 						</div>
 						<div class="col-xs-6 text-center">
 							<button class="btn btn-lg btn-primary" id="send">Send</button>

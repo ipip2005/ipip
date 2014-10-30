@@ -38,33 +38,45 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 center-text">
-			<h3 class="soft-text inline">Pages:</h3> {{$comments->links()}}
+			<h3 class="soft-text inline"></h3> {{$comments->links()}}
 		</div>
 	</div>
 	@if(count($comments)>0)
 	<div class="row">
 		<div class="col-xs-12 article-comments">
 			@foreach($comments as $comment)
-			<div class="row">
-				<br>
-			</div>
 			<div class="comment-wrap btn-default row" tabIndex="-1">
 				<h4 class="col-xs-6">
-					<span class="btn-info img-rounded padding-5"><?php
+						@if($comment->from_admin)
+						<span class="btn-success img-rounded padding-5">
+							ipip2005
+						</span>
+						@else
+						<span class="btn-info img-rounded padding-5">name:
+							<?php
 							if ($comment->commenter == '')
-								echo 'no_name';
+								echo 'no_name_' . $comment->id;
 							else
 								echo $comment->commenter;
-							?></span>
-				</h4>
-				<h4 class="col-xs-6">
-					<span class="btn-info img-rounded padding-5"><?php
+							?>
+						</span>
+						@endif
+						<span class="soft-text comment-time">&nbsp at {{$comment->created_at}}</span>
+					</h4>
+					<h4 class="col-xs-6">
+						@if($comment->from_admin)
+						<span class="btn-success img-rounded padding-5">
+							supersingerman@126.com
+						</span>
+						@else
+						<span class="btn-info img-rounded padding-5">c-i:<?php
 						if ($comment->email == '')
 							echo 'none';
 						else
 							echo $comment->email;
 						?></span>
-				</h4>
+						@endif
+					</h4>
 
 				<h3 class="col-xs-12">{{$comment->comment}}</h3>
 				<h4 class="bg-info inline col-xs-7 col-xs-offset-1 img-rounded">

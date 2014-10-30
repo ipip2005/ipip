@@ -401,3 +401,11 @@ p,a{
 .width-100{
 	width:100%;
 }
+.border-0{
+	border:0;
+}
+.comment-time{
+	font-size:15px;
+	font-weight:normal;
+	margin-top:0;
+}
