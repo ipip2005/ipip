@@ -8,6 +8,7 @@
 	content="0b542825c3c4160744bfb71de0aec40b">
 <meta name="google-site-verification"
 	content="iy69sGumMcvaUUjW3bnVvhzUoqNrXjdoiNJjKYB8vPo" />
+<meta name="msvalidate.01" content="7FD3872A53B33CC8D7A3E5BB237F8282" />
 <meta name="keywords" content="ipip">
 <meta name="keywords" content="ipip2005">
 <meta name="keywords" content="ipip's blog">
