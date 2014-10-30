@@ -29,7 +29,7 @@ SyntaxHighlighter.all() //执行代码高亮
 		</div>
 
 		<div class="row article-labels">
-			@foreach($mylabels as $label) <a
+			@foreach($mylabels as $label) <a rel="nofollow"
 				href="/article-at-label?label_id=<?php echo $label->id?>"
 				class="col-xs-4 col-md-2 text-center bigger inline">
 				<p class="bg-info img-rounded soft-text">{{$label->label_name}}</p>
@@ -210,7 +210,7 @@ SyntaxHighlighter.all() //执行代码高亮
 					<div class="col-xs-12 text-right padding-0">
 						@if(Auth::check()) <a
 							href="/comment/delete?cid=<?php echo $comment->id?>"
-							class="btn btn-danger" id="hidden<?php echo $comment->id?>"
+							class="no-radius btn btn-danger" id="hidden<?php echo $comment->id?>"
 							style="display: none;">delete</a> @endif <a
 							onclick="javascript:reply('<?php
 							if ($comment->commenter == '')
@@ -218,7 +218,7 @@ SyntaxHighlighter.all() //执行代码高亮
 							else
 								echo $comment->commenter;
 							?>')"
-							href="#leave-comment" class="btn btn-primary"><i class="icon-reply"></i> reply</a>
+							href="#leave-comment" class="btn-primary btn-reply btn"><i class="icon-reply"></i> reply</a>
 					</div>
 				</div>
 				<div class="row">

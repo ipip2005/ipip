@@ -1,3 +1,4 @@
+$(".header").load(window_onscroll());
 function bookmarksite(title, url){
 	 if (document.all)
          window.external.AddFavorite(url, title);
@@ -23,11 +24,9 @@ function window_onscroll(){
 		header.style.position = "fixed";
 		header.style.top = "" + (bar_height - header_height + 8) + "px";
 		main.style.paddingTop = header_height + "px";
-		$('.shouldhideonscroll').fadeOut(1000);
 	} else{
 		header.style.position = "relative";
 		header.style.top = "0px";
-		$('.shouldhideonscroll').fadeIn(500);
 		main.style.paddingTop = "0px";
 	}
 	var hiddenbox = $('#hiddenbox');
@@ -59,7 +58,7 @@ function on_load(){
 		main.style.paddingTop = bar_height + "px";
     }
     $('.article-content img').height('auto');
-    $('.article-content img').css("opacity", "0.8")
+    $('.article-content img').css("opacity", "0.9")
     $('.article-content img').mouseenter(function(){$(this).fadeTo(500, 1)});
     $('.article-content img').mouseleave(function(){$(this).fadeTo(100, 0.8)});
     $('.article-content img').click(function(){

@@ -1,14 +1,7 @@
-<div class="col-xs-7">
-{{$articles->links()}}
+<div class="col-xs-12 text-center">
+	{{$articles->links()}}
 </div>
-<div class="col-xs-5 padding-top-30 search">
-{{ Form::open(['url' => 'search','method'=>'get']) }}
-	<div class="row">
-		{{ Form::text('search',Input::old('search'),['placeholder'=>'Search in blog...', 'class'=>'img-rounded col-xs-9']) }}
-		<button type="submit" class="btn btn-info img-circle col-xs-1 col-xs-offset-1 padding-2"><i class="icon-search"></i></button>
-	</div>
-{{ Form::close() }}
-</div>
+
 <div class="col-xs-12 divider img-rounded">
 </div>
 @foreach($articles as $article)
@@ -37,7 +30,7 @@
 			@if(count($article->labels()->get())>0)
 				@foreach($article->labels as $label)
 				<a
-				href="/article-at-label?label_id=<?php echo $label->id?>"
+				href="/article-at-label?label_id=<?php echo $label->id?>" rel="nofollow"
 				class="col-xs-4 col-md-2 text-center bigger inline">
 				<p class="bg-custom img-rounded soft-text">{{$label->label_name}}</p>
 				</a>
@@ -49,8 +42,8 @@
 		
 	</article>
 @endforeach
-<div class="col-xs-12">
-{{$articles->links()}}
+<div class="col-xs-12 text-center">
+	{{$articles->links()}}
 </div>
 <script>
 	$(document).ready(function(){
