@@ -1,4 +1,7 @@
 $(".header").load(window_onscroll());
+$(".corner-icon").click(function(){
+	$(this).parents("article").hide(500);
+})
 function bookmarksite(title, url){
 	 if (document.all)
          window.external.AddFavorite(url, title);

@@ -7,7 +7,7 @@
 @foreach($articles as $article)
 	<article class="article col-xs-12">
 		<header class="article-header row bg-success">
-			<i class="icon-file soft-text icon-2x"></i>
+			<i class="icon-file soft-text icon-2x corner-icon"></i>
 			<h2 class="article-title col-xs-12">
 				<a href="/article/show?aid=<?php echo $article->id?>">
 					{{$article->title}}
@@ -20,7 +20,7 @@
 			<div class="col-xs-6 align-right">
 				<span class="soft-text">
 					@if(Auth::check() && $article->hidden)
-					<div class="inline fire-text">HIDDEN</div>
+					<span class="fire-text">HIDDEN</span>
 					@endif
 					<i class="icon-group"></i> <?php
 					$count = Redis::get($article->id);
