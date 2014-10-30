@@ -171,9 +171,6 @@ SyntaxHighlighter.all() //执行代码高亮
 				</div>
 				@foreach($article->comments as $comment) <a
 					id="<?php echo $comment->id?>" name="<?php echo $comment->id?>"></a>
-				<div class="row">
-					<br>
-				</div>
 				<div class="comment-wrap btn-default img-rounded row" tabIndex="-1"
 					onfocus="toggleHiddenComment({{$comment->id}})"
 					onblur="toggleHiddenComment({{$comment->id}})">
