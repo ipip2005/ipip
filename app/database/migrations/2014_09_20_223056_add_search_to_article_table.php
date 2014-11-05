@@ -12,10 +12,10 @@ class AddSearchToArticleTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('articles', function (Blueprint $table) {
-			$table->dropIndex('search');
-			DB::statement('ALTER TABLE articles ADD FULLTEXT search(title, content) WITH PARSER mysqlcft');
-		});
+	    Schema::table('articles', function (Blueprint $table) {
+	        $table->dropIndex('search');
+	        DB::statement('ALTER TABLE articles ADD FULLTEXT search(title, content) WITH PARSER mysqlcft');
+	    });
 	}
 
 	/**

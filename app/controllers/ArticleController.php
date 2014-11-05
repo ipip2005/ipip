@@ -92,10 +92,12 @@ class ArticleController extends BaseController
 	}
 	public function postComment(){
 		$article = Article::findOrFail(Input::get('article_id'));
+	    $content = Input::get('comment-content');
+	    if (!Auth::check()) $content = htmlspecialchars($content);
 		$comment = [
 			'commenter' => Input::get('commenter-name'),
 			'email' => Input::get('commenter-contact-information'),
-			'comment' => Input::get('comment-content'),
+			'comment' => $content,
 		];
 		$rules = [
 			'commenter' => 'max:255',
